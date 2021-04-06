@@ -9,7 +9,7 @@ class ArticlesList extends React.Component {
   componentDidMount() {}
 
   render() {
-    return <section>"HELLO"</section>;
+    return <section>"ARTICLES LIST"</section>;
   }
 }
 
