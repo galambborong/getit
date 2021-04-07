@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from '../components/Loading';
-import { fetchAllArticles } from '../utils/api';
+import { fetchArticles } from '../utils/api';
 import ArticleCard from './ArticleCard';
 
 class ArticlesList extends React.Component {
@@ -12,7 +12,7 @@ class ArticlesList extends React.Component {
 
   componentDidMount() {
     const { topic, username } = this.props;
-    fetchAllArticles(topic, username)
+    fetchArticles(topic, username)
       .then((resArticles) => {
         this.setState({ articles: resArticles, error: false, loading: false });
       })
