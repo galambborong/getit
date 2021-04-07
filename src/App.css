@@ -6,12 +6,38 @@
 
 .App {
   background-color: palegreen;
+  height: 100vh;
 }
 
 .header {
   background-color: orange;
+  height: 10vh;
+}
+
+.header__title {
+  text-align: center;
+  padding: 1rem;
 }
 
 .nav {
   background: palevioletred;
+  height: 5vh;
+  text-align: center;
+}
+
+.nav__link {
+  padding: 5px 10px;
+}
+
+.articles {
+  display: grid;
+  width: 90vw;
+  margin: auto;
+  grid-template-columns: 1fr;
+  background-color: whitesmoke;
+}
+
+.article-card {
+  border: 1px solid black;
+  margin: 1rem;
 }

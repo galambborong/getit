@@ -12,9 +12,15 @@ class Nav extends React.Component {
   render() {
     return (
       <nav className="nav">
-        <Link to="/topics">topics</Link>
-        <Link to="/articles">articles</Link>
-        <Link to="/users">users</Link>
+        <Link to="/topics" className="nav__link">
+          topics
+        </Link>
+        <Link to="/articles" className="nav__link">
+          articles
+        </Link>
+        <Link to="/users" className="nav__link">
+          users
+        </Link>
       </nav>
     );
   }
