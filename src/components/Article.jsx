@@ -1,7 +1,7 @@
 import React from 'react';
 import { fetchArticleById } from '../utils/api';
 import { Link } from '@reach/router';
-import CommentsList from './CommentsList';
+// import CommentsList from './CommentsList';
 import Loading from './Loading';
 
 class Article extends React.Component {

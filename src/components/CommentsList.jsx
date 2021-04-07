@@ -28,7 +28,7 @@ class CommentsList extends React.Component {
     return (
       <main>
         {comments.map((comment) => {
-          return <Comment comment={comment} />;
+          return <Comment comment={comment} key={comment.comment_id} />;
         })}
       </main>
     );
