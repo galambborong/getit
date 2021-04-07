@@ -14,7 +14,7 @@ function App() {
       <Router>
         <ArticlesList path="/" />
         <ArticlesList path="/articles" />
-        <ArticlesList path="/:filter/articles" />
+        <ArticlesList path="/:topic/articles" />
         <TopicsList path="/topics" />
         <UsersList path="/users" />
       </Router>

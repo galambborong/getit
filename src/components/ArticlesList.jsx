@@ -11,7 +11,8 @@ class ArticlesList extends React.Component {
   };
 
   componentDidMount() {
-    fetchAllArticles()
+    const { topic } = this.props;
+    fetchAllArticles(topic)
       .then((resArticles) => {
         this.setState({ articles: resArticles, error: false, loading: false });
       })
