@@ -1,5 +1,7 @@
 import React from 'react';
 import { fetchArticleById } from '../utils/api';
+import { Link } from '@reach/router';
+import CommentsList from './CommentsList';
 import Loading from './Loading';
 
 class Article extends React.Component {
@@ -20,7 +22,15 @@ class Article extends React.Component {
 
     if (loading) return <Loading />;
 
-    const { author, body, created_at, title, topic, votes } = article;
+    const {
+      author,
+      body,
+      created_at,
+      title,
+      topic,
+      votes,
+      article_id
+    } = article;
 
     const date = new Date(created_at);
 
@@ -32,6 +42,8 @@ class Article extends React.Component {
         <p>{date.toDateString()}</p>
         <p>{votes}</p>
         <p>{topic}</p>
+        <Link to={`/articles/${article_id}/comments`}>Comments</Link>
+        {/* <CommentsList articleId={article_id} /> */}
       </main>
     );
   }

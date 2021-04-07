@@ -6,6 +6,7 @@ import ArticlesList from './components/ArticlesList';
 import TopicsList from './components/TopicsList';
 import UsersList from './components/UsersList';
 import Article from './components/Article';
+import CommentsList from './components/CommentsList';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <ArticlesList path="/articles" />
         <ArticlesList path="/:topic/articles" />
         <Article path="/articles/:article_id" />
+        <CommentsList path="/articles/:article_id/comments" />
         <TopicsList path="/topics" />
         <UsersList path="/users" />
         <ArticlesList path="/users/:username/articles" />

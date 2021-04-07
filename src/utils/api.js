@@ -28,3 +28,8 @@ export const fetchArticleById = async (articleId) => {
   const { data } = await req.get(`/articles/${articleId}`);
   return data.article;
 };
+
+export const fetchCommentsByArticleId = async (articleId) => {
+  const { data } = await req.get(`/articles/${articleId}/comments`);
+  return data.comments;
+};
