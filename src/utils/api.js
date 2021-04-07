@@ -8,7 +8,9 @@ export const fetchArticles = async (topic, username) => {
   const { data } = await req.get('/articles', {
     params: {
       topic: topic ? topic : null,
-      author: username ? username : null
+      author: username ? username : null,
+      sort_by: 'votes',
+      order: 'desc'
     }
   });
   return data.articles;
@@ -32,4 +34,9 @@ export const fetchArticleById = async (articleId) => {
 export const fetchCommentsByArticleId = async (articleId) => {
   const { data } = await req.get(`/articles/${articleId}/comments`);
   return data.comments;
+};
+
+export const patchArticleVotes = async (articleId, vote) => {
+  const { data } = await req.patch(`/articles/${articleId}`, vote);
+  return data.article;
 };

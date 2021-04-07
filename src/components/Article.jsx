@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchArticleById } from '../utils/api';
+import { fetchArticleById, patchArticleVotes } from '../utils/api';
 import { Link } from '@reach/router';
 // import CommentsList from './CommentsList';
 import Loading from './Loading';
@@ -16,6 +16,17 @@ class Article extends React.Component {
       this.setState({ article, loading: false, error: false });
     });
   }
+
+  handleClick = (event) => {
+    const { id } = event.target;
+    patchArticleVotes(this.props.article_id, { inc_votes: id })
+      .then((article) => {
+        this.setState({ article });
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
+  };
 
   render() {
     const { loading, article } = this.state;
@@ -40,10 +51,27 @@ class Article extends React.Component {
         <h3>{author}</h3>
         <p>{body}</p>
         <p>{date.toDateString()}</p>
-        <p>{votes}</p>
+        <p>
+          <button
+            id="1"
+            onClick={(event) => {
+              this.handleClick(event);
+            }}
+          >
+            +
+          </button>
+          {votes}
+          <button
+            id="-1"
+            onClick={(event) => {
+              this.handleClick(event);
+            }}
+          >
+            -
+          </button>
+        </p>
         <p>{topic}</p>
         <Link to={`/articles/${article_id}/comments`}>Comments</Link>
-        {/* <CommentsList articleId={article_id} /> */}
       </main>
     );
   }
