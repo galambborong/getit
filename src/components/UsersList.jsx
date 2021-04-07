@@ -1,5 +1,7 @@
 import React from 'react';
 import { fetchUsersList } from '../utils/api';
+import Loading from './Loading';
+import UserCard from './UserCard';
 
 class UsersList extends React.Component {
   state = {
@@ -10,16 +12,26 @@ class UsersList extends React.Component {
 
   componentDidMount() {
     fetchUsersList()
-      .then((res) => {
-        console.log(res);
+      .then((users) => {
+        this.setState({ users, loading: false, error: false });
       })
       .catch((err) => {
+        this.setState({ error: true, loading: false });
         console.dir(err);
       });
   }
 
   render() {
-    return <div>"USERS LIST"</div>;
+    const { users, loading } = this.state;
+    if (loading) return <Loading />;
+
+    return (
+      <main>
+        {users.map((user) => {
+          return <UserCard user={user} key={user.username} />;
+        })}
+      </main>
+    );
   }
 }
 
