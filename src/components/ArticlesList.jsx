@@ -11,8 +11,8 @@ class ArticlesList extends React.Component {
   };
 
   componentDidMount() {
-    const { topic } = this.props;
-    fetchAllArticles(topic)
+    const { topic, username } = this.props;
+    fetchAllArticles(topic, username)
       .then((resArticles) => {
         this.setState({ articles: resArticles, error: false, loading: false });
       })
@@ -24,6 +24,15 @@ class ArticlesList extends React.Component {
 
   render() {
     const { loading, articles } = this.state;
+
+    console.log(
+      'Articles match by props:',
+      articles.every(
+        (article) =>
+          article.topic === this.props.topic ||
+          article.author === this.props.username
+      )
+    );
 
     if (loading) {
       return <Loading />;

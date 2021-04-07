@@ -17,6 +17,7 @@ function App() {
         <ArticlesList path="/:topic/articles" />
         <TopicsList path="/topics" />
         <UsersList path="/users" />
+        <ArticlesList path="/users/:username/articles" />
       </Router>
     </div>
   );
