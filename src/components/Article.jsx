@@ -1,9 +1,9 @@
 import React from 'react';
 import { fetchArticleById } from '../utils/api';
 import { Link } from '@reach/router';
-// import CommentsList from './CommentsList';
 import Loading from './Loading';
 import UpdateVotes from './UpdateVotes';
+import AddComment from './AddComment';
 
 class Article extends React.Component {
   state = {
@@ -43,6 +43,7 @@ class Article extends React.Component {
         <p>{date.toDateString()}</p>
         <UpdateVotes article_id={article_id} votes={votes} />
         <p>{topic}</p>
+        <AddComment article_id={article_id} />
         <Link to={`/articles/${article_id}/comments`}>Comments</Link>
       </main>
     );

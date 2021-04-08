@@ -50,3 +50,11 @@ export const patchVote = async (articleId, voteInc, commentId) => {
     return data.comment;
   }
 };
+
+export const postComment = async (articleId, username, body) => {
+  const { data } = await req.post(`/articles/${articleId}/comments`, {
+    username,
+    body
+  });
+  return data.comment;
+};
