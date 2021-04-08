@@ -45,13 +45,12 @@ class ArticlesList extends React.Component {
 
   render() {
     const { loading, articles } = this.state;
+    const { topic, username } = this.props;
 
     console.log(
       'Articles match by props:',
       articles.every(
-        (article) =>
-          article.topic === this.props.topic ||
-          article.author === this.props.username
+        (article) => article.topic === topic || article.author === username
       )
     );
 
@@ -61,6 +60,8 @@ class ArticlesList extends React.Component {
 
     return (
       <main className="articles">
+        <h2>{topic}</h2>
+        <h2>{username}</h2>
         <SortList sortListOrder={this.sortListOrder} />
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;

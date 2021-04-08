@@ -1,6 +1,6 @@
 import UpdateVotes from './UpdateVotes';
 
-const Comments = ({ comment }) => {
+const Comment = ({ comment }) => {
   const { votes, author, body, comment_id } = comment;
   return (
     <article>
@@ -11,4 +11,4 @@ const Comments = ({ comment }) => {
   );
 };
 
-export default Comments;
+export default Comment;

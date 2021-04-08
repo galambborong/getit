@@ -1,4 +1,4 @@
-const SortList = ({ sortListOrder }) => {
+const SortList = ({ sortListOrder, uri }) => {
   return (
     <div className="sorting">
       <button onClick={() => sortListOrder('votes')} className="sorting__btn">
@@ -13,6 +13,14 @@ const SortList = ({ sortListOrder }) => {
       <button onClick={() => sortListOrder('author')} className="sorting__btn">
         Author
       </button>
+      {!uri && (
+        <button
+          onClick={() => sortListOrder('comment_count')}
+          className="sorting__btn"
+        >
+          Number of Comments
+        </button>
+      )}
     </div>
   );
 };
