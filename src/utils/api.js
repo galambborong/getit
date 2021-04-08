@@ -32,6 +32,7 @@ export const fetchArticleById = async (articleId) => {
 };
 
 export const fetchCommentsByArticleId = async (articleId, sortBy) => {
+  console.log('STOP ME');
   const { data } = await req.get(`/articles/${articleId}/comments`, {
     params: {
       sort_by: sortBy
