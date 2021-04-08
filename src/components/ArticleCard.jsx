@@ -13,14 +13,14 @@ const ArticleCard = ({ article }) => {
   } = article;
 
   const sentence = handleSentence(body);
-  const date = new Date(created_at);
+  const date = new Date(created_at).toDateString();
 
   return (
     <article className="article-card">
       <h3 className="article-card__title">{title}</h3>
       <h4 className="article-card__author">{author}</h4>
       <h5 className="article-card__date">
-        {date.toDateString()} votes: {votes}
+        {date} votes: {votes}
       </h5>
       <p className="article-card__blurb">{sentence}&#8230;</p>
       <p className="article-card__comment-count">{comment_count}</p>

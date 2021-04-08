@@ -17,11 +17,11 @@ function App() {
         <ArticlesList path="/" />
         <ArticlesList path="/articles" />
         <ArticlesList path="/:topic/articles" />
+        <ArticlesList path="/users/:username/articles" />
         <Article path="/articles/:article_id" />
         <CommentsList path="/articles/:article_id/comments" />
         <TopicsList path="/topics" />
         <UsersList path="/users" />
-        <ArticlesList path="/users/:username/articles" />
       </Router>
     </div>
   );

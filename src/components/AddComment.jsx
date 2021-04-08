@@ -4,7 +4,6 @@ import { navigate } from '@reach/router';
 
 class AddComment extends React.Component {
   state = {
-    loading: true,
     error: null,
     comment: {
       username: '',
@@ -18,6 +17,7 @@ class AddComment extends React.Component {
       const updatedComment = { ...currState.comment };
       updatedComment[name] = value;
       currState.comment = updatedComment;
+      currState.error = false;
       return currState;
     });
   };
@@ -32,10 +32,21 @@ class AddComment extends React.Component {
       })
       .catch((err) => {
         console.dir(err);
+        this.setState({ error: true });
       });
   };
 
   render() {
+    const { error } = this.state;
+
+    if (error)
+      return (
+        <div>
+          <h3>Comment not posted</h3>
+          <p>You must registered in order to comment</p>
+        </div>
+      );
+
     return (
       <form onSubmit={this.handleSubmit} className="add-comment">
         <label htmlFor="username">

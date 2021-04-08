@@ -29,15 +29,21 @@ class UpdateVotes extends React.Component {
 
   render() {
     const { article_id, votes, comment_id } = this.props;
-    const { votesChange } = this.state;
+    const { votesChange, hasVoted } = this.state;
 
     return (
       <div className="vote">
-        <button onClick={() => this.handleClick(article_id, 1, comment_id)}>
+        <button
+          disabled={hasVoted}
+          onClick={() => this.handleClick(article_id, 1, comment_id)}
+        >
           +
         </button>
         {votes + votesChange}
-        <button onClick={() => this.handleClick(article_id, -1, comment_id)}>
+        <button
+          disabled={hasVoted}
+          onClick={() => this.handleClick(article_id, -1, comment_id)}
+        >
           -
         </button>
       </div>
