@@ -36,7 +36,9 @@ export const fetchCommentsByArticleId = async (articleId) => {
   return data.comments;
 };
 
-export const patchArticleVotes = async (articleId, vote) => {
-  const { data } = await req.patch(`/articles/${articleId}`, vote);
+export const patchArticleVotes = async (articleId, voteId) => {
+  const { data } = await req.patch(`/articles/${articleId}`, {
+    inc_votes: voteId
+  });
   return data.article;
 };

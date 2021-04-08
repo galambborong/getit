@@ -19,7 +19,7 @@ class Article extends React.Component {
 
   handleClick = (event) => {
     const { id } = event.target;
-    patchArticleVotes(this.props.article_id, { inc_votes: id })
+    patchArticleVotes(this.props.article_id, id)
       .then((article) => {
         this.setState({ article });
       })
@@ -52,21 +52,11 @@ class Article extends React.Component {
         <p>{body}</p>
         <p>{date.toDateString()}</p>
         <p>
-          <button
-            id="1"
-            onClick={(event) => {
-              this.handleClick(event);
-            }}
-          >
+          <button id="1" onClick={this.handleClick}>
             +
           </button>
           {votes}
-          <button
-            id="-1"
-            onClick={(event) => {
-              this.handleClick(event);
-            }}
-          >
+          <button id="-1" onClick={this.handleClick}>
             -
           </button>
         </p>
