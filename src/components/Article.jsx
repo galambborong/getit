@@ -1,8 +1,9 @@
 import React from 'react';
-import { fetchArticleById, patchArticleVotes } from '../utils/api';
+import { fetchArticleById } from '../utils/api';
 import { Link } from '@reach/router';
 // import CommentsList from './CommentsList';
 import Loading from './Loading';
+import UpdateVotes from './UpdateVotes';
 
 class Article extends React.Component {
   state = {
@@ -16,17 +17,6 @@ class Article extends React.Component {
       this.setState({ article, loading: false, error: false });
     });
   }
-
-  handleClick = (event) => {
-    const { id } = event.target;
-    patchArticleVotes(this.props.article_id, id)
-      .then((article) => {
-        this.setState({ article });
-      })
-      .catch((err) => {
-        console.dir(err);
-      });
-  };
 
   render() {
     const { loading, article } = this.state;
@@ -51,15 +41,7 @@ class Article extends React.Component {
         <h3>{author}</h3>
         <p>{body}</p>
         <p>{date.toDateString()}</p>
-        <p>
-          <button id="1" onClick={this.handleClick}>
-            +
-          </button>
-          {votes}
-          <button id="-1" onClick={this.handleClick}>
-            -
-          </button>
-        </p>
+        <UpdateVotes article_id={article_id} votes={votes} />
         <p>{topic}</p>
         <Link to={`/articles/${article_id}/comments`}>Comments</Link>
       </main>
