@@ -19,11 +19,10 @@ const ArticleCard = ({ article }) => {
     <article className="article-card">
       <h3 className="article-card__title">{title}</h3>
       <h4 className="article-card__author">{author}</h4>
-      <h5 className="article-card__date">
-        {date} votes: {votes}
-      </h5>
+      <h5 className="article-card__date">{date}</h5>
+      <h5>votes: {votes}</h5>
       <p className="article-card__blurb">{sentence}&#8230;</p>
-      <p className="article-card__comment-count">{comment_count}</p>
+      <p className="article-card__comment-count">{comment_count} comments</p>
       <button className="article-card__btn">
         <Link to={`/articles/${article_id}`}>Read the full article here</Link>
       </button>

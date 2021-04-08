@@ -8,7 +8,8 @@ class AddComment extends React.Component {
     comment: {
       username: '',
       body: ''
-    }
+    },
+    success: null
   };
 
   handleChange = (event) => {
@@ -23,13 +24,16 @@ class AddComment extends React.Component {
   };
 
   handleSubmit = (event) => {
-    console.log('invoked');
+    const { confirmComment } = this.props;
     event.preventDefault();
     const { username, body } = this.state.comment;
-    const { article_id, path } = this.props;
+    const { article_id } = this.props;
     postComment(article_id, username, body)
       .then(() => {
-        this.setState({ comment: {} });
+        if (confirmComment) {
+          confirmComment();
+        }
+        this.setState({ success: true });
         navigate(`/articles/${article_id}/comments`);
       })
       .catch((err) => {
@@ -39,9 +43,7 @@ class AddComment extends React.Component {
   };
 
   render() {
-    const { error } = this.state;
-
-    console.log(this.state);
+    const { error, success } = this.state;
 
     if (error)
       return (
@@ -50,6 +52,15 @@ class AddComment extends React.Component {
           <p>You must registered in order to comment</p>
         </div>
       );
+
+    if (success) {
+      return (
+        <div>
+          <h3>Success!</h3>
+          <p>Your comment has been added</p>
+        </div>
+      );
+    }
 
     return (
       <div className="add-comment">

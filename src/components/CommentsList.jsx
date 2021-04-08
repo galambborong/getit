@@ -18,6 +18,10 @@ class CommentsList extends React.Component {
     this.setState({ sort_by: event });
   };
 
+  confirmComment = () => {
+    this.setState({ newComment: true });
+  };
+
   componentDidMount() {
     const { sort_by } = this.state;
     const { article_id } = this.props;
@@ -32,15 +36,12 @@ class CommentsList extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { sort_by, comments } = this.state;
+    const { sort_by, newComment } = this.state;
     const { article_id } = this.props;
-    if (
-      prevState.sort_by !== sort_by ||
-      prevState.comments.length !== comments.length
-    ) {
+    if (prevState.sort_by !== sort_by || prevState.newComment !== newComment) {
       fetchCommentsByArticleId(article_id, sort_by)
         .then((comments) => {
-          this.setState({ comments });
+          this.setState({ comments, newComment: null });
         })
         .catch((err) => {
           console.dir(err);
@@ -50,7 +51,7 @@ class CommentsList extends React.Component {
   }
 
   render() {
-    const { loading, comments, newComment } = this.state;
+    const { loading, comments } = this.state;
     const { uri, article_id } = this.props;
 
     if (loading) return <Loading />;
@@ -58,11 +59,17 @@ class CommentsList extends React.Component {
     return (
       <main>
         <SortList sortListOrder={this.sortListOrder} uri={uri} />
-        <AddComment article_id={article_id} />
+        <AddComment
+          article_id={article_id}
+          confirmComment={this.confirmComment}
+        />
         {comments.map((comment) => {
           return <Comment comment={comment} key={comment.comment_id} />;
         })}
-        <AddComment article_id={article_id} />
+        <AddComment
+          article_id={article_id}
+          confirmComment={this.confirmComment}
+        />
       </main>
     );
   }
