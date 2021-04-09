@@ -20,7 +20,7 @@ class TopicsList extends React.Component {
     const { loading, topics } = this.state;
     if (loading) return <Loading />;
     return (
-      <main>
+      <main className="topics">
         <ul>
           {topics.map((topic) => {
             return (
