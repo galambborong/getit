@@ -16,14 +16,16 @@ const ArticleCard = ({ article }) => {
   const date = new Date(created_at).toDateString();
 
   return (
-    <article className="article-card">
-      <h3 className="article-card__title">{title}</h3>
-      <h4 className="article-card__author">{author}</h4>
-      <h5 className="article-card__date">{date}</h5>
-      <h5>votes: {votes}</h5>
-      <p className="article-card__blurb">{sentence}&#8230;</p>
-      <p className="article-card__comment-count">{comment_count} comments</p>
-      <button className="article-card__btn">
+    <article className="article">
+      <h3 className="article__title">{title}</h3>
+      <p className="article__author">
+        <span className="accent">{author}</span>{' '}
+      </p>
+      <p className="article__date">{date}</p>
+      <p className="article__votes">+/- {votes}</p>
+      <p className="article__blurb">{sentence}&#8230;</p>
+      <p className="article__comment-count">Comments {comment_count}</p>
+      <button className="article__btn">
         <Link to={`/articles/${article_id}`}>Read the full article here</Link>
       </button>
     </article>

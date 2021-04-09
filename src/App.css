@@ -1,59 +1,124 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.App {
-  background-color: palegreen;
-  height: 100vh;
+body {
+  background: #ceccc4;
+  margin: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fefef9;
+}
+
+.accent {
+  color: #ca6561;
 }
 
 .header {
-  background-color: orange;
-  height: 10vh;
+  height: 15vh;
+  background-color: #2c3f4b;
+  display: grid;
+  place-items: center;
 }
 
 .header__title {
+  flex-grow: 1;
   text-align: center;
-  padding: 1rem;
+  color: #fefef9;
 }
 
 .nav {
-  background: palevioletred;
-  height: 5vh;
-  text-align: center;
+  background-color: #ca6561;
+  height: 6vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  place-items: center;
 }
 
 .nav__link {
-  padding: 5px 10px;
+  color: #2c3f4b;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .articles {
-  display: grid;
-  width: 90vw;
-  margin: auto;
-  grid-template-columns: 1fr;
-  background-color: whitesmoke;
-}
-
-.article-card {
-  border: 1px solid black;
   margin: 1rem;
+  width: calc(100vw - 2rem);
 }
 
-.user {
-  width: 90vw;
-  margin: auto;
-  border: 1px solid black;
+.articles__header {
+  color: #2c3f4b;
+  text-align: center;
+  margin: 2rem 1rem;
 }
 
-.user__img {
-  width: 80px;
+.articles-container {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-.add-comment {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem 0;
+.article {
+  background-color: #fefef9;
+  border: 2px solid #ca6561;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "title title" "author date" "body body" "votes comments" "link link";
+  margin: 0.5rem 0;
+  padding: 8px;
+  place-items: center;
 }
+
+.article__title {
+  grid-area: title;
+  text-align: center;
+  min-height: 2rem;
+  margin: 0.5rem;
+  color: #2c3f4b;
+}
+
+.article__author {
+  grid-area: author;
+  justify-self: left;
+  color: #2c3f4b;
+  font-weight: 700;
+}
+
+.article__date {
+  grid-area: date;
+  justify-self: right;
+}
+
+.article__votes {
+  grid-area: votes;
+  justify-self: left;
+}
+
+.article__blurb {
+  grid-area: body;
+  margin: 0.5rem 0;
+}
+
+.article__comment-count {
+  grid-area: comments;
+  justify-self: right;
+}
+
+.article__btn {
+  grid-area: link;
+  margin-top: 0.5rem;
+  background-color: #2c3f4b;
+  color: #fefef9;
+  border-style: none;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+/*# sourceMappingURL=App.css.map */

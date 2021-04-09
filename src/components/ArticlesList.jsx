@@ -83,11 +83,15 @@ class ArticlesList extends React.Component {
 
     if (!loading && path === '/') {
       return (
-        <main>
-          <h2>Here's three articles to get you started...</h2>
-          {randomArticles.map((article) => {
-            return <ArticleCard article={article} key={article.article_id} />;
-          })}
+        <main className="articles">
+          <h2 className="articles__header">
+            Some reading to get you started...
+          </h2>
+          <section className="articles-container">
+            {randomArticles.map((article) => {
+              return <ArticleCard article={article} key={article.article_id} />;
+            })}
+          </section>
         </main>
       );
     }
@@ -96,6 +100,7 @@ class ArticlesList extends React.Component {
       <main className="articles">
         <h2>{topic}</h2>
         <h2>{username}</h2>
+        <h2 className="articles__header">All articles</h2>
         <Paginate
           changePage={this.changePage}
           page={page}
