@@ -11,7 +11,9 @@ const Paginate = ({ changePage, page, limit, totalArticle }) => {
       </button>
       <p>{page}</p>
       <button
-        // TODO: this doesn't currently work for filtered lists (by topic, etc)
+        // TODO: this doesn't currently work for filtered lists
+        // (by topic, etc), as totalArticle reflects the grand total
+
         disabled={page === Math.floor(totalArticle / limit) + 1}
         onClick={() => {
           changePage(1);

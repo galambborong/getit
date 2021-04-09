@@ -6,6 +6,7 @@ class AddComment extends React.Component {
   state = {
     username: 'tickle122',
     body: '',
+    error: null,
     success: null
   };
 
@@ -26,26 +27,26 @@ class AddComment extends React.Component {
       })
       .catch((err) => {
         console.dir(err);
-        this.setState({ comment: {}, success: false });
+        this.setState({ comment: {}, error: true });
       });
   };
 
   render() {
-    const { success } = this.state;
-
-    if (!success)
-      return (
-        <div>
-          <h3>Comment not posted</h3>
-          <p>You must registered in order to comment</p>
-        </div>
-      );
+    const { success, error } = this.state;
 
     if (success) {
       return (
         <div>
           <h3>Success!</h3>
           <p>Your comment has been added</p>
+        </div>
+      );
+    }
+    if (error) {
+      return (
+        <div>
+          <h3>Comment not posted</h3>
+          <p>You must registered in order to comment</p>
         </div>
       );
     }

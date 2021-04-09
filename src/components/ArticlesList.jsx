@@ -67,8 +67,6 @@ class ArticlesList extends React.Component {
     const { loading, articles, page, totalArticle, limit } = this.state;
     const { topic, username, path } = this.props;
 
-    console.log(this.state);
-
     const randomArticles = [];
     let counter = 3;
 
