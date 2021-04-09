@@ -4,16 +4,18 @@ const req = axios.create({
   baseURL: 'https://pk-nc-news.herokuapp.com/api'
 });
 
-export const fetchArticles = async (topic, username, sortBy) => {
+export const fetchArticles = async (topic, username, sortBy, page, limit) => {
   const { data } = await req.get('/articles', {
     params: {
       topic: topic ? topic : null,
       author: username ? username : null,
       sort_by: sortBy,
-      order: 'desc'
+      order: 'desc',
+      p: page,
+      limit
     }
   });
-  return data.articles;
+  return data;
 };
 
 export const fetchTopicsList = async () => {
