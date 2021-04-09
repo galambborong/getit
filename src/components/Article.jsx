@@ -9,7 +9,12 @@ class Article extends React.Component {
   state = {
     loading: true,
     error: null,
-    article: {}
+    article: {},
+    newComment: null
+  };
+
+  confirmComment = () => {
+    this.setState({ newComment: true });
   };
 
   componentDidMount() {
@@ -43,7 +48,10 @@ class Article extends React.Component {
         <p>{date.toDateString()}</p>
         <UpdateVotes article_id={article_id} votes={votes} />
         <p>{topic}</p>
-        <AddComment article_id={article_id} />
+        <AddComment
+          article_id={article_id}
+          confirmComment={this.confirmComment}
+        />
         <Link to={`/articles/${article_id}/comments`}>Comments</Link>
       </main>
     );

@@ -45,17 +45,31 @@ class ArticlesList extends React.Component {
 
   render() {
     const { loading, articles } = this.state;
-    const { topic, username } = this.props;
+    const { topic, username, path } = this.props;
 
-    console.log(
-      'Articles match by props:',
-      articles.every(
-        (article) => article.topic === topic || article.author === username
-      )
-    );
+    const randomArticles = [];
+    let counter = 3;
+
+    while (counter > 0) {
+      randomArticles.push(
+        articles[Math.floor(Math.random() * articles.length)]
+      );
+      counter--;
+    }
 
     if (loading) {
       return <Loading />;
+    }
+
+    if (!loading && path === '/') {
+      return (
+        <main>
+          <h2>Here's three articles to get you started...</h2>
+          {randomArticles.map((article) => {
+            return <ArticleCard article={article} key={article.article_id} />;
+          })}
+        </main>
+      );
     }
 
     return (

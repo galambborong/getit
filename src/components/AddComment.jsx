@@ -4,48 +4,36 @@ import { navigate } from '@reach/router';
 
 class AddComment extends React.Component {
   state = {
-    error: null,
-    comment: {
-      username: '',
-      body: ''
-    },
+    username: 'tickle122',
+    body: '',
     success: null
   };
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState((currState) => {
-      const updatedComment = { ...currState.comment };
-      updatedComment[name] = value;
-      currState.comment = updatedComment;
-      currState.error = false;
-      return currState;
-    });
+    this.setState({ [name]: value });
   };
 
   handleSubmit = (event) => {
-    const { confirmComment } = this.props;
     event.preventDefault();
-    const { username, body } = this.state.comment;
-    const { article_id } = this.props;
+    const { confirmComment, article_id } = this.props;
+    const { username, body } = this.state;
     postComment(article_id, username, body)
       .then(() => {
-        if (confirmComment) {
-          confirmComment();
-        }
+        confirmComment();
         this.setState({ success: true });
         navigate(`/articles/${article_id}/comments`);
       })
       .catch((err) => {
         console.dir(err);
-        this.setState({ comment: {}, error: true });
+        this.setState({ comment: {}, success: false });
       });
   };
 
   render() {
-    const { error, success } = this.state;
+    const { success } = this.state;
 
-    if (error)
+    if (!success)
       return (
         <div>
           <h3>Comment not posted</h3>
@@ -73,7 +61,7 @@ class AddComment extends React.Component {
               name="username"
               id="username"
               className="add-comment__username"
-              value={this.state.comment.username}
+              value={this.state.username}
               onChange={this.handleChange}
             />
           </label>
@@ -84,7 +72,7 @@ class AddComment extends React.Component {
               name="body"
               id="body"
               className="add-comment__body"
-              value={this.state.comment.body}
+              value={this.state.body}
               onChange={this.handleChange}
             ></textarea>
           </label>
