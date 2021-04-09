@@ -1,6 +1,8 @@
 const SortList = ({ sortListOrder, uri }) => {
   return (
     <div className="sorting">
+      <i className="fas fa-sort-amount-down sorting__sorter"></i>
+      {/* <h3 className="sorting__sub-head">Sort by</h3> */}
       <button onClick={() => sortListOrder('votes')} className="sorting__btn">
         Votes
       </button>

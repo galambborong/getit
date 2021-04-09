@@ -1,26 +1,30 @@
 const Paginate = ({ changePage, page, limit, totalArticle }) => {
   return (
     <div className="pagination">
-      <button
-        disabled={page === 1}
-        onClick={() => {
-          changePage(-1);
-        }}
-      >
-        prev
-      </button>
-      <p>{page}</p>
-      <button
-        // TODO: this doesn't currently work for filtered lists
-        // (by topic, etc), as totalArticle reflects the grand total
+      <p>
+        <button
+          disabled={page === 1}
+          className="pagination__btn"
+          onClick={() => {
+            changePage(-1);
+          }}
+        >
+          <i className="fas fa-angle-double-left"></i>
+        </button>
+        {page}
+        <button
+          // TODO: this doesn't currently work for filtered lists
+          // (by topic, etc), as totalArticle reflects the grand total
 
-        disabled={page === Math.floor(totalArticle / limit) + 1}
-        onClick={() => {
-          changePage(1);
-        }}
-      >
-        next
-      </button>
+          disabled={page === Math.floor(totalArticle / limit) + 1}
+          className="pagination__btn"
+          onClick={() => {
+            changePage(1);
+          }}
+        >
+          <i className="fas fa-angle-double-right"></i>
+        </button>
+      </p>
     </div>
   );
 };

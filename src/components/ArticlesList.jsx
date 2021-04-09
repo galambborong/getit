@@ -98,19 +98,27 @@ class ArticlesList extends React.Component {
 
     return (
       <main className="articles">
-        <h2>{topic}</h2>
-        <h2>{username}</h2>
-        <h2 className="articles__header">All articles</h2>
+        {topic && <h2 className="articles__header">{topic} articles</h2>}
+        {username && (
+          <h2 className="articles__header articles__header--user">
+            {username}'s articles
+          </h2>
+        )}
+        {!topic && !username && (
+          <h2 className="articles__header">All articles</h2>
+        )}
+        <div className="controls">
+          <SortList sortListOrder={this.sortListOrder} />
+        </div>
+        {articles.map((article) => {
+          return <ArticleCard article={article} key={article.article_id} />;
+        })}
         <Paginate
           changePage={this.changePage}
           page={page}
           limit={limit}
           totalArticle={totalArticle}
         />
-        <SortList sortListOrder={this.sortListOrder} />
-        {articles.map((article) => {
-          return <ArticleCard article={article} key={article.article_id} />;
-        })}
       </main>
     );
   }

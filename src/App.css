@@ -57,6 +57,11 @@ a {
   color: #2c3f4b;
   text-align: center;
   margin: 2rem 1rem;
+  text-transform: capitalize;
+}
+
+.articles__header--user {
+  text-transform: none;
 }
 
 .articles-container {
@@ -71,7 +76,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "title title" "author date" "body body" "votes comments" "link link";
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   padding: 8px;
   place-items: center;
 }
@@ -114,11 +119,50 @@ a {
 .article__btn {
   grid-area: link;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   background-color: #2c3f4b;
   color: #fefef9;
   border-style: none;
+  border-radius: 4px;
   padding: 5px;
   font-size: 1rem;
+}
+
+.pagination {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
+  color: #2c3f4b;
+}
+
+.pagination__btn {
+  margin: 0.5rem;
+  padding: 5px;
+  font-size: 1.5rem;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #2c3f4b;
+  color: #fefef9;
+}
+
+.sorting {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sorting__btn {
+  background-color: #2c3f4b;
+  color: #fefef9;
+  border: none;
+  margin: 3px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.sorting__sorter {
+  font-size: 2.5rem;
+  color: #2c3f4b;
+  place-self: center;
 }
 
 /*# sourceMappingURL=App.css.map */
