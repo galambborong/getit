@@ -21,10 +21,11 @@ class TopicsList extends React.Component {
     if (loading) return <Loading />;
     return (
       <main className="topics">
-        <ul>
+        <h2 className="topics__header">Browse by topic...</h2>
+        <ul className="topics__list">
           {topics.map((topic) => {
             return (
-              <li key={topic.slug}>
+              <li className="topics__link" key={topic.slug}>
                 <TopicCard topic={topic} />
               </li>
             );
