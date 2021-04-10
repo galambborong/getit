@@ -34,17 +34,19 @@ class UpdateVotes extends React.Component {
     return (
       <div className="vote">
         <button
+          className="vote__btn"
           disabled={hasVoted}
           onClick={() => this.handleClick(article_id, 1, comment_id)}
         >
-          +
+          <i className="fas fa-thumbs-up"></i>
         </button>
         {votes + votesChange}
         <button
+          className="vote__btn"
           disabled={hasVoted}
           onClick={() => this.handleClick(article_id, -1, comment_id)}
         >
-          -
+          <i className="fas fa-thumbs-down"></i>
         </button>
       </div>
     );

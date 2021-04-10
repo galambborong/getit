@@ -110,9 +110,11 @@ class ArticlesList extends React.Component {
         <div className="controls">
           <SortList sortListOrder={this.sortListOrder} />
         </div>
-        {articles.map((article) => {
-          return <ArticleCard article={article} key={article.article_id} />;
-        })}
+        <section className="articles-container">
+          {articles.map((article) => {
+            return <ArticleCard article={article} key={article.article_id} />;
+          })}
+        </section>
         <Paginate
           changePage={this.changePage}
           page={page}

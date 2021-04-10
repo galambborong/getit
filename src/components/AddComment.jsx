@@ -53,31 +53,38 @@ class AddComment extends React.Component {
 
     return (
       <div className="add-comment">
-        <h3>Add your comment!</h3>
-        <form onSubmit={this.handleSubmit} className="add-comment__form">
-          <label htmlFor="username">
+        <h3 className="add-comment__header">Have something to add?</h3>
+        <form onSubmit={this.handleSubmit} className="comment-form">
+          <label
+            id="lbl-username"
+            className="comment-form__label"
+            htmlFor="username"
+          >
             Username:
-            <input
-              type="text"
-              name="username"
-              id="username"
-              className="add-comment__username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
           </label>
-          <label htmlFor="body">
+          <input
+            disabled
+            type="text"
+            name="username"
+            id="username"
+            className="comment-form__input"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <label id="lbl-body" className="comment-form__label" htmlFor="body">
             Comment:
-            <textarea
-              type="text"
-              name="body"
-              id="body"
-              className="add-comment__body"
-              value={this.state.body}
-              onChange={this.handleChange}
-            ></textarea>
           </label>
-          <button type="submit">Submit your comment</button>
+          <textarea
+            type="text"
+            name="body"
+            id="body"
+            className="comment-form__input"
+            value={this.state.body}
+            onChange={this.handleChange}
+          ></textarea>
+          <button className="comment-form__btn" type="submit">
+            Submit your comment
+          </button>
         </form>
       </div>
     );

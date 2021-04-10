@@ -5,11 +5,17 @@
 }
 
 $colours: (
-  col-1: #2c3f4b,
-  col-2: #77cac5,
-  col-3: #fefef9,
-  col-4: #ceccc4,
-  col-5: #ca6561
+  // col-1: #2c3f4b,
+  // col-2: #77cac5,
+  // col-3: #fefef9,
+  // col-4: #ceccc4,
+  // col-5: #ca6561
+  col-1: #023480,
+  col-2: #82c2a2,
+  col-3: #fff,
+  col-4: #f9df89,
+  col-5: #cf4e03,
+  col-6: #cbf7f1
 );
 
 @function colour($colour-name) {
@@ -47,11 +53,11 @@ a {
 .header__title {
   flex-grow: 1;
   text-align: center;
-  color: colour(col-3);
+  color: colour(col-6);
 }
 
 .nav {
-  background-color: colour(col-5);
+  background-color: colour(col-2);
   height: 6vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -67,13 +73,15 @@ a {
 }
 
 .articles,
-.topics {
+.topics,
+.article {
   margin: 1rem;
   width: calc(100vw - 2rem);
 }
 
 .articles__header,
-.topics__header {
+.topics__header,
+.article__header {
   color: colour(col-1);
   text-align: center;
   margin: 2rem 1rem;
@@ -89,7 +97,7 @@ a {
   grid-template-columns: 1fr;
 }
 
-.article {
+.article-card {
   background-color: colour(col-3);
   border: 2px solid colour(col-5);
   border-radius: 4px;
@@ -101,12 +109,12 @@ a {
     'body body'
     'votes comments'
     'link link';
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   padding: 8px;
   place-items: center;
 }
 
-.article__title {
+.article-card__title {
   grid-area: title;
   text-align: center;
   min-height: 2rem;
@@ -114,34 +122,34 @@ a {
   color: colour(col-1);
 }
 
-.article__author {
+.article-card__author {
   grid-area: author;
   justify-self: left;
   color: colour(col-1);
   font-weight: 700;
 }
 
-.article__date {
+.article-card__date {
   grid-area: date;
   justify-self: right;
 }
 
-.article__votes {
+.article-card__votes {
   grid-area: votes;
   justify-self: left;
 }
 
-.article__blurb {
+.article-card__blurb {
   grid-area: body;
   margin: 0.5rem 0;
 }
 
-.article__comment-count {
+.article-card__comment-count {
   grid-area: comments;
   justify-self: right;
 }
 
-.article__btn {
+.article-card__btn {
   grid-area: link;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -178,6 +186,7 @@ a {
 .sorting {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 0.5rem;
 }
 
 .sorting__btn {
@@ -202,10 +211,139 @@ a {
 
 .topics__link {
   margin: 1rem;
-  padding: 5px;
 }
 
 .topics__link > a {
   color: colour(col-1);
   font-style: oblique;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 2.4rem 2fr 2fr;
+  grid-template-areas:
+    'title title title'
+    'author author author'
+    'topic date date'
+    'votes body body'
+    'see-comments see-comments see-comments'
+    'add-comment add-comment add-comment';
+}
+
+.article__header {
+  grid-area: title;
+}
+
+.article__author {
+  grid-area: author;
+  justify-self: center;
+  margin: 1rem;
+  color: colour(col-1);
+}
+
+.article__body {
+  grid-area: body;
+  margin: 1rem 0;
+}
+
+.article__date {
+  grid-area: date;
+  color: colour(col-1);
+  justify-self: end;
+}
+
+.article__topic {
+  grid-area: topic;
+  color: colour(col-1);
+}
+
+.article__comments {
+  grid-area: see-comments;
+  place-self: center;
+  color: colour(col-1);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0.5rem;
+}
+
+.vote {
+  grid-area: votes;
+  margin: 1rem 1rem 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  // place-items: space-around;
+  place-self: start;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.vote__btn {
+  border-style: none;
+  border-radius: 4px;
+  background-color: colour(col-1);
+  color: colour(col-3);
+  padding: 5px;
+}
+
+.add-comment {
+  grid-area: add-comment;
+  background-color: colour(col-2);
+}
+
+.add-comment__header {
+  margin: 1rem;
+  text-align: center;
+  color: colour(col-1);
+  text-transform: uppercase;
+  padding-top: 1rem;
+}
+
+.comment-form {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas:
+    'user-label user-input'
+    'body-label body-input'
+    'btn btn';
+  width: 100vw;
+  // place-items: center;
+}
+
+.comment-form__label {
+  color: colour(col-1);
+  align-self: start;
+  justify-self: center;
+}
+
+.comment-form__input {
+  width: 90%;
+  margin-bottom: 1rem;
+  place-self: center;
+}
+
+#lbl-username {
+  grid-area: user-label;
+}
+
+#username {
+  grid-area: user-input;
+}
+
+#lbl-body {
+  grid-area: body-label;
+  // align-self: stretch;
+}
+
+#body {
+  grid-area: body-input;
+}
+
+.comment-form__btn {
+  background-color: colour(col-1);
+  border-style: none;
+  font-size: 1.5rem;
+  color: colour(col-3);
+  padding: 10px;
+  grid-area: btn;
+  width: 100vw;
 }

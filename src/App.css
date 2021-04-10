@@ -5,18 +5,18 @@
 }
 
 body {
-  background: #ceccc4;
+  background: #f9df89;
   margin: auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: #fefef9;
+  color: #fff;
 }
 
 .accent {
-  color: #ca6561;
+  color: #cf4e03;
 }
 
 .accent--mod {
@@ -27,7 +27,7 @@ a {
 
 .header {
   height: 15vh;
-  background-color: #2c3f4b;
+  background-color: #023480;
   display: grid;
   place-items: center;
 }
@@ -35,11 +35,11 @@ a {
 .header__title {
   flex-grow: 1;
   text-align: center;
-  color: #fefef9;
+  color: #cbf7f1;
 }
 
 .nav {
-  background-color: #ca6561;
+  background-color: #82c2a2;
   height: 6vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -48,21 +48,23 @@ a {
 }
 
 .nav__link {
-  color: #2c3f4b;
+  color: #023480;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 700;
 }
 
 .articles,
-.topics {
+.topics,
+.article {
   margin: 1rem;
   width: calc(100vw - 2rem);
 }
 
 .articles__header,
-.topics__header {
-  color: #2c3f4b;
+.topics__header,
+.article__header {
+  color: #023480;
   text-align: center;
   margin: 2rem 1rem;
   text-transform: capitalize;
@@ -77,59 +79,59 @@ a {
   grid-template-columns: 1fr;
 }
 
-.article {
-  background-color: #fefef9;
-  border: 2px solid #ca6561;
+.article-card {
+  background-color: #fff;
+  border: 2px solid #cf4e03;
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "title title" "author date" "body body" "votes comments" "link link";
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   padding: 8px;
   place-items: center;
 }
 
-.article__title {
+.article-card__title {
   grid-area: title;
   text-align: center;
   min-height: 2rem;
   margin: 0.5rem;
-  color: #2c3f4b;
+  color: #023480;
 }
 
-.article__author {
+.article-card__author {
   grid-area: author;
   justify-self: left;
-  color: #2c3f4b;
+  color: #023480;
   font-weight: 700;
 }
 
-.article__date {
+.article-card__date {
   grid-area: date;
   justify-self: right;
 }
 
-.article__votes {
+.article-card__votes {
   grid-area: votes;
   justify-self: left;
 }
 
-.article__blurb {
+.article-card__blurb {
   grid-area: body;
   margin: 0.5rem 0;
 }
 
-.article__comment-count {
+.article-card__comment-count {
   grid-area: comments;
   justify-self: right;
 }
 
-.article__btn {
+.article-card__btn {
   grid-area: link;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  background-color: #2c3f4b;
-  color: #fefef9;
+  background-color: #023480;
+  color: #fff;
   border-style: none;
   border-radius: 4px;
   padding: 5px;
@@ -140,7 +142,7 @@ a {
   font-size: 1.25rem;
   font-weight: 500;
   text-align: center;
-  color: #2c3f4b;
+  color: #023480;
 }
 
 .pagination__btn {
@@ -149,18 +151,19 @@ a {
   font-size: 1.5rem;
   border-style: none;
   border-radius: 4px;
-  background-color: #2c3f4b;
-  color: #fefef9;
+  background-color: #023480;
+  color: #fff;
 }
 
 .sorting {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 0.5rem;
 }
 
 .sorting__btn {
-  background-color: #2c3f4b;
-  color: #fefef9;
+  background-color: #023480;
+  color: #fff;
   border: none;
   margin: 3px;
   padding: 5px;
@@ -169,7 +172,7 @@ a {
 
 .sorting__sorter {
   font-size: 2.5rem;
-  color: #2c3f4b;
+  color: #023480;
   place-self: center;
 }
 
@@ -180,12 +183,129 @@ a {
 
 .topics__link {
   margin: 1rem;
-  padding: 5px;
 }
 
 .topics__link > a {
-  color: #2c3f4b;
+  color: #023480;
   font-style: oblique;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 2.4rem 2fr 2fr;
+  grid-template-areas: "title title title" "author author author" "topic date date" "votes body body" "see-comments see-comments see-comments" "add-comment add-comment add-comment";
+}
+
+.article__header {
+  grid-area: title;
+}
+
+.article__author {
+  grid-area: author;
+  justify-self: center;
+  margin: 1rem;
+  color: #023480;
+}
+
+.article__body {
+  grid-area: body;
+  margin: 1rem 0;
+}
+
+.article__date {
+  grid-area: date;
+  color: #023480;
+  justify-self: end;
+}
+
+.article__topic {
+  grid-area: topic;
+  color: #023480;
+}
+
+.article__comments {
+  grid-area: see-comments;
+  place-self: center;
+  color: #023480;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0.5rem;
+}
+
+.vote {
+  grid-area: votes;
+  margin: 1rem 1rem 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-self: start;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.vote__btn {
+  border-style: none;
+  border-radius: 4px;
+  background-color: #023480;
+  color: #fff;
+  padding: 5px;
+}
+
+.add-comment {
+  grid-area: add-comment;
+  background-color: #82c2a2;
+}
+
+.add-comment__header {
+  margin: 1rem;
+  text-align: center;
+  color: #023480;
+  text-transform: uppercase;
+  padding-top: 1rem;
+}
+
+.comment-form {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "user-label user-input" "body-label body-input" "btn btn";
+  width: 100vw;
+}
+
+.comment-form__label {
+  color: #023480;
+  align-self: start;
+  justify-self: center;
+}
+
+.comment-form__input {
+  width: 90%;
+  margin-bottom: 1rem;
+  place-self: center;
+}
+
+#lbl-username {
+  grid-area: user-label;
+}
+
+#username {
+  grid-area: user-input;
+}
+
+#lbl-body {
+  grid-area: body-label;
+}
+
+#body {
+  grid-area: body-input;
+}
+
+.comment-form__btn {
+  background-color: #023480;
+  border-style: none;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 10px;
+  grid-area: btn;
+  width: 100vw;
 }
 
 /*# sourceMappingURL=App.css.map */

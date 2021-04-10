@@ -41,19 +41,26 @@ class Article extends React.Component {
     const date = new Date(created_at);
 
     return (
-      <main>
-        <h2>{title}</h2>
-        <h3>{author}</h3>
-        <p>{body}</p>
-        <p>{date.toDateString()}</p>
-        <UpdateVotes article_id={article_id} votes={votes} />
-        <p>{topic}</p>
+      <div>
+        <main className="article">
+          <h2 className="article__header">{title}</h2>
+          <h3 className="article__author">{author}</h3>
+          <p className="article__body">{body}</p>
+          <p className="article__date">{date.toDateString()}</p>
+          <UpdateVotes article_id={article_id} votes={votes} />
+          <p className="article__topic">{topic}</p>
+          <Link
+            to={`/articles/${article_id}/comments`}
+            className="article__comments"
+          >
+            See comments
+          </Link>
+        </main>
         <AddComment
           article_id={article_id}
           confirmComment={this.confirmComment}
         />
-        <Link to={`/articles/${article_id}/comments`}>Comments</Link>
-      </main>
+      </div>
     );
   }
 }
