@@ -26,10 +26,12 @@ class UsersList extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <main>
-        {users.map((user) => {
-          return <UserCard user={user} key={user.username} />;
-        })}
+      <main className="users">
+        <section className="users-container">
+          {users.map((user) => {
+            return <UserCard user={user} key={user.username} />;
+          })}
+        </section>
       </main>
     );
   }

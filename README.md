@@ -6,7 +6,7 @@ This is a reddit-like news/content-sharing site. This repository is the front en
 
 ## See it in action
 
-I plan to host this project live imminently. In the meantime, however, please follow the following steps to sample it locally. Note, this project was built using Node v14.15.3.
+I plan to host this project live imminently. In the meantime, however, please follow the following steps to sample it locally, providing you have Node installed. (Note, this project was built using Node v14.15.3.)
 
 1. Clone the repo
 2. Within the directory `pk-nc-news-fe`, run `npm i` to install all dependencies

@@ -56,14 +56,17 @@ a {
 
 .articles,
 .topics,
-.article {
+.article,
+.comments,
+.users {
   margin: 1rem;
   width: calc(100vw - 2rem);
 }
 
 .articles__header,
 .topics__header,
-.article__header {
+.article__header,
+.comments__title {
   color: #023480;
   text-align: center;
   margin: 2rem 1rem;
@@ -74,7 +77,9 @@ a {
   text-transform: none;
 }
 
-.articles-container {
+.articles-container,
+.comments-container,
+.users-container {
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -159,6 +164,10 @@ a {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin-bottom: 0.5rem;
+}
+
+.sorting--comment {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .sorting__btn {
@@ -266,7 +275,7 @@ a {
 .comment-form {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-areas: "user-label user-input" "body-label body-input" "btn btn";
+  grid-template-areas: "user-label user-input" "body-label body-input" "body-label body-input" "btn btn";
   width: 100vw;
 }
 
@@ -296,6 +305,7 @@ a {
 
 #body {
   grid-area: body-input;
+  height: 100%;
 }
 
 .comment-form__btn {
@@ -306,6 +316,76 @@ a {
   padding: 10px;
   grid-area: btn;
   width: 100vw;
+}
+
+.comment-card {
+  background-color: #fff;
+  border: 2px solid #cf4e03;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-areas: "author author" "vote body";
+  margin: 0.5rem 0;
+  padding: 8px;
+  place-items: start;
+}
+
+.comment-card__author {
+  grid-area: author;
+  place-self: start;
+  font-size: 1.2rem;
+  color: #023480;
+  margin: 1rem 0;
+}
+
+.comment-card__body {
+  grid-area: body;
+}
+
+.comment-card__vote {
+  grid-area: vote;
+  place-self: start;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.user {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "img username" "img btn";
+  background-color: #fff;
+  border: 2px solid #cf4e03;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.user__img {
+  width: 80px;
+  grid-area: img;
+}
+
+.user__username {
+  font-size: 1rem;
+  grid-area: username;
+}
+
+.user__btn {
+  grid-area: btn;
+}
+
+.article-card {
+  background-color: #fff;
+  border: 2px solid #cf4e03;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "title title" "author date" "body body" "votes comments" "link link";
+  margin: 0.5rem 0;
+  padding: 8px;
+  place-items: center;
 }
 
 /*# sourceMappingURL=App.css.map */

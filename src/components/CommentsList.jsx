@@ -57,20 +57,21 @@ class CommentsList extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <main>
-        <SortList sortListOrder={this.sortListOrder} uri={uri} />
+      <div>
+        <main className="comments">
+          <h2 className="comments__title">Comments</h2>
+          <SortList sortListOrder={this.sortListOrder} uri={uri} />
+          <section className="comments-container">
+            {comments.map((comment) => {
+              return <Comment comment={comment} key={comment.comment_id} />;
+            })}
+          </section>
+        </main>
         <AddComment
           article_id={article_id}
           confirmComment={this.confirmComment}
         />
-        {comments.map((comment) => {
-          return <Comment comment={comment} key={comment.comment_id} />;
-        })}
-        <AddComment
-          article_id={article_id}
-          confirmComment={this.confirmComment}
-        />
-      </main>
+      </div>
     );
   }
 }

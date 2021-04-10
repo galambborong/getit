@@ -48,7 +48,7 @@ class Article extends React.Component {
           <p className="article__body">{body}</p>
           <p className="article__date">{date.toDateString()}</p>
           <UpdateVotes article_id={article_id} votes={votes} />
-          <p className="article__topic">{topic}</p>
+          <p className="article__topic">#{topic}</p>
           <Link
             to={`/articles/${article_id}/comments`}
             className="article__comments"

@@ -31,8 +31,14 @@ class UpdateVotes extends React.Component {
     const { article_id, votes, comment_id } = this.props;
     const { votesChange, hasVoted } = this.state;
 
+    let mainClassName = '';
+
+    !comment_id
+      ? (mainClassName = 'vote')
+      : (mainClassName = 'comment-card__vote');
+
     return (
-      <div className="vote">
+      <div className={mainClassName}>
         <button
           className="vote__btn"
           disabled={hasVoted}
