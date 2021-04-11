@@ -25,7 +25,6 @@ class ArticlesList extends React.Component {
       return {
         page: currState.page + increment,
         loading: true
-        // loading: true
       };
     });
   };
@@ -101,7 +100,7 @@ class ArticlesList extends React.Component {
         {topic && <h2 className="articles__header">{topic} articles</h2>}
         {username && (
           <h2 className="articles__header articles__header--user">
-            {username}'s articles
+            @{username}'s articles
           </h2>
         )}
         {!topic && !username && (

@@ -44,7 +44,7 @@ class Article extends React.Component {
       <div>
         <main className="article">
           <h2 className="article__header">{title}</h2>
-          <h3 className="article__author">{author}</h3>
+          <h3 className="article__author">@{author}</h3>
           <p className="article__body">{body}</p>
           <p className="article__date">{date.toDateString()}</p>
           <UpdateVotes article_id={article_id} votes={votes} />

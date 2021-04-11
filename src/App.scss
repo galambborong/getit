@@ -147,6 +147,7 @@ a {
 .article-card__blurb {
   grid-area: body;
   margin: 0.5rem 0;
+  place-self: start;
 }
 
 .article-card__comment-count {
@@ -405,35 +406,46 @@ a {
   border: 2px solid colour(col-5);
   border-radius: 4px;
   margin: 0.5rem 0;
+  place-items: center;
 }
 
 .user__img {
   width: 80px;
   grid-area: img;
+  place-self: start;
+  margin: 5px;
 }
 
 .user__username {
   font-size: 1rem;
   grid-area: username;
+  color: colour(col-1);
 }
 
 .user__btn {
   grid-area: btn;
+  border: none;
+  border-radius: 4px;
+  background-color: colour(col-1);
+  padding: 4px 1rem;
 }
 
-.article-card {
-  background-color: colour(col-3);
-  border: 2px solid colour(col-5);
-  border-radius: 4px;
+.loading {
+  height: calc(79vh - 2rem);
+  margin: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    'title title'
-    'author date'
-    'body body'
-    'votes comments'
-    'link link';
-  margin: 0.5rem 0;
-  padding: 8px;
-  place-items: center;
+}
+
+.loading__header {
+  color: colour(col-1);
+  margin-bottom: 1rem;
+  text-transform: lowercase;
+  place-self: end center;
+}
+
+.loading__spinner {
+  place-self: start center;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: colour(col-1);
 }
