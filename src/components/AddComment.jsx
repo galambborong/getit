@@ -46,7 +46,7 @@ class AddComment extends React.Component {
       return (
         <div>
           <h3>Comment not posted</h3>
-          <p>You must registered in order to comment</p>
+          <p>There was an error when posting your comment</p>
         </div>
       );
     }

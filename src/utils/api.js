@@ -19,7 +19,7 @@ export const fetchArticles = async (topic, username, sortBy, page, limit) => {
 };
 
 export const fetchTopicsList = async () => {
-  const { data } = await req.get('/topcs');
+  const { data } = await req.get('/topics');
   return data.topics;
 };
 

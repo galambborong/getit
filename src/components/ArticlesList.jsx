@@ -4,6 +4,7 @@ import { fetchArticles } from '../utils/api';
 import ArticleCard from './ArticleCard';
 import Paginate from './Paginate';
 import SortList from './SortList';
+import Error from './Error';
 
 class ArticlesList extends React.Component {
   state = {
@@ -41,9 +42,9 @@ class ArticlesList extends React.Component {
           totalArticle: total_count
         });
       })
-      .catch((err) => {
-        console.dir(err);
-        this.setState({ error: true });
+      .catch((error) => {
+        console.dir(error);
+        this.setState({ error, loading: false });
       });
   }
 
@@ -55,15 +56,15 @@ class ArticlesList extends React.Component {
         .then(({ articles, total_count }) => {
           this.setState({ articles, total_count, loading: false });
         })
-        .catch((err) => {
-          console.dir(err);
-          this.setState({ error: true });
+        .catch((error) => {
+          console.dir(error);
+          this.setState({ error, loading: false });
         });
     }
   }
 
   render() {
-    const { loading, articles, page, totalArticle, limit } = this.state;
+    const { loading, articles, page, totalArticle, limit, error } = this.state;
     const { topic, username, path } = this.props;
 
     const randomArticles = [];
@@ -76,9 +77,8 @@ class ArticlesList extends React.Component {
       counter--;
     }
 
-    if (loading) {
-      return <Loading />;
-    }
+    if (loading) return <Loading />;
+    if (error) return <Error error={error} />;
 
     if (!loading && path === '/') {
       return (

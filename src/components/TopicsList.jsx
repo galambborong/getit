@@ -16,9 +16,9 @@ class TopicsList extends React.Component {
       .then((res) => {
         this.setState({ loading: false, error: false, topics: res });
       })
-      .catch((err) => {
-        console.dir(err);
-        this.setState({ loading: false, error: err });
+      .catch((error) => {
+        console.dir(error);
+        this.setState({ loading: false, error });
       });
   }
 

@@ -21,7 +21,6 @@ You can preview this project live at [getit.peterkeenan.co.uk](http://getit.pete
 
 I'm making constant updates to this project at the moment, so the following is yet to be implemented or finished:
 
-- Error handling
 - Sort-by handling
   - I'm currently providing a selection of options, but ideally the user should be able to control things like the number of articles they want to view per page, the sort direction, etc
 - Article and comment deletion

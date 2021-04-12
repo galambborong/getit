@@ -4,6 +4,7 @@ import { Link } from '@reach/router';
 import Loading from './Loading';
 import UpdateVotes from './UpdateVotes';
 import AddComment from './AddComment';
+import Error from './Error';
 
 class Article extends React.Component {
   state = {
@@ -18,15 +19,21 @@ class Article extends React.Component {
   };
 
   componentDidMount() {
-    fetchArticleById(this.props.article_id).then((article) => {
-      this.setState({ article, loading: false, error: false });
-    });
+    fetchArticleById(this.props.article_id)
+      .then((article) => {
+        this.setState({ article, loading: false, error: false });
+      })
+      .catch((err) => {
+        console.dir(err);
+        this.setState({ error: err, loading: false });
+      });
   }
 
   render() {
-    const { loading, article } = this.state;
+    const { loading, error, article } = this.state;
 
     if (loading) return <Loading />;
+    if (error) return <Error error={error} />;
 
     const {
       author,

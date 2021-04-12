@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchUsersList } from '../utils/api';
+import Error from './Error';
 import Loading from './Loading';
 import UserCard from './UserCard';
 
@@ -15,15 +16,16 @@ class UsersList extends React.Component {
       .then((users) => {
         this.setState({ users, loading: false, error: false });
       })
-      .catch((err) => {
-        this.setState({ error: true, loading: false });
-        console.dir(err);
+      .catch((error) => {
+        console.dir(error);
+        this.setState({ error: error, loading: false });
       });
   }
 
   render() {
-    const { users, loading } = this.state;
+    const { users, loading, error } = this.state;
     if (loading) return <Loading />;
+    if (error) return <Error error={error} />;
 
     return (
       <main className="users">
