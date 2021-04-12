@@ -6,11 +6,27 @@ This is a reddit-like news/content-sharing site. This repository is the front en
 
 ## See it in action
 
-I plan to host this project live imminently. In the meantime, however, please follow the following steps to sample it locally, providing you have Node installed. (Note, this project was built using Node v14.15.3.)
+You can preview this project live at [getit.peterkeenan.co.uk](http://getit.peterkeenan.co.uk). You are also welcome to follow these steps to sample it locally, providing you have Git and Node installed. (Note, this project was built using Node v14.15.3.)
 
 1. Clone the repo
 2. Within the directory `pk-nc-news-fe`, run `npm i` to install all dependencies
-3. Once this has completed, run `npm start`. This will open a new tab in your browser
+3. Once this has completed, run `npm start`. This will open a new tab in your browser. Enjoy
+
+### Things to bear in mind
+
+- You are hard-coded in as user `tickle122`, so you can post comments
+- The site is currently styled for mobile-only (see below)
+
+## Work in progress
+
+I'm making constant updates to this project at the moment, so the following is yet to be implemented or finished:
+
+- Error handling
+- Sort-by handling
+  - I'm currently providing a selection of options, but ideally the user should be able to control things like the number of articles they want to view per page, the sort direction, etc
+- Article and comment deletion
+- Styling rules for larger screens
+- Some styling still required for components
 
 ## Technology stack
 
