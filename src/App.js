@@ -7,6 +7,7 @@ import TopicsList from './components/TopicsList';
 import UsersList from './components/UsersList';
 import Article from './components/Article';
 import CommentsList from './components/CommentsList';
+import Error from './components/Error';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <CommentsList path="/articles/:article_id/comments" />
         <TopicsList path="/topics" />
         <UsersList path="/users" />
+        <Error default />
       </Router>
     </div>
   );

@@ -385,20 +385,28 @@ a {
   padding: 4px 1rem;
 }
 
-.loading {
+.loading,
+.error {
   height: calc(79vh - 2rem);
   margin: 1rem;
   display: grid;
 }
 
-.loading__header {
+.loading__header,
+.error__header {
   color: #023480;
   margin-bottom: 1rem;
   text-transform: lowercase;
   place-self: end center;
 }
 
-.loading__spinner {
+.error__header {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.loading__spinner,
+.error__main {
   place-self: start center;
   font-size: 2rem;
   margin-top: 1rem;
