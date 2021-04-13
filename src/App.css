@@ -22,7 +22,7 @@ a {
 .accent--mod {
   text-transform: uppercase;
   font-weight: 700;
-  font-style: none;
+  font-style: normal;
 }
 
 .header {
@@ -271,6 +271,12 @@ a {
   color: #023480;
   text-transform: uppercase;
   padding-top: 1rem;
+}
+
+.add-comment__msg {
+  text-align: center;
+  color: #023480;
+  padding-bottom: 1rem;
 }
 
 .comment-form {

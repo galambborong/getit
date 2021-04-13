@@ -19,16 +19,18 @@ class AddComment extends React.Component {
     event.preventDefault();
     const { confirmComment, article_id } = this.props;
     const { username, body } = this.state;
-    postComment(article_id, username, body)
-      .then(() => {
-        confirmComment();
-        this.setState({ success: true });
-        navigate(`/articles/${article_id}/comments`);
-      })
-      .catch((err) => {
-        console.dir(err);
-        this.setState({ comment: {}, error: true });
-      });
+    if (body.length > 0) {
+      postComment(article_id, username, body)
+          .then(() => {
+            confirmComment();
+            this.setState({ success: true });
+            navigate(`/articles/${article_id}/comments`);
+          })
+          .catch((err) => {
+            console.dir(err);
+            this.setState({ comment: {}, error: true });
+          });
+    }
   };
 
   render() {
@@ -36,23 +38,23 @@ class AddComment extends React.Component {
 
     if (success) {
       return (
-        <div>
-          <h3>Success!</h3>
-          <p>Your comment has been added</p>
-        </div>
+        <section className="add-comment">
+          <h3 className="add-comment__header">Success!</h3>
+          <p className="add-comment__msg">Your comment has been added</p>
+        </section>
       );
     }
     if (error) {
       return (
-        <div>
-          <h3>Comment not posted</h3>
-          <p>There was an error when posting your comment</p>
-        </div>
+        <section className="add-comment">
+          <h3 className="add-comment__header">Comment not posted</h3>
+          <p className="add-comment__msg">There was an error posting your comment</p>
+        </section>
       );
     }
 
     return (
-      <div className="add-comment">
+      <section className="add-comment">
         <h3 className="add-comment__header">Have something to add?</h3>
         <form onSubmit={this.handleSubmit} className="comment-form">
           <label
@@ -75,18 +77,17 @@ class AddComment extends React.Component {
             Comment:
           </label>
           <textarea
-            type="text"
             name="body"
             id="body"
             className="comment-form__input"
             value={this.state.body}
             onChange={this.handleChange}
-          ></textarea>
+            />
           <button className="comment-form__btn" type="submit">
             Submit your comment
           </button>
         </form>
-      </div>
+      </section>
     );
   }
 }
