@@ -28,7 +28,7 @@ class AddComment extends React.Component {
           })
           .catch((err) => {
             console.dir(err);
-            this.setState({ comment: {}, error: true });
+            this.setState({ error: true });
           });
     }
   };
