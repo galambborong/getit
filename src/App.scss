@@ -5,12 +5,12 @@
 }
 
 $colours: (
-  col-1: #023480,
-  col-2: #82c2a2,
-  col-3: #fff,
-  col-4: #f9df89,
-  col-5: #cf4e03,
-  col-6: #cbf7f1
+        col-1: #023480,
+        col-2: #82c2a2,
+        col-3: #fff,
+        col-4: #f9df89,
+        col-5: #cf4e03,
+        col-6: #cbf7f1
 );
 
 @function colour($colour-name) {
@@ -369,7 +369,8 @@ a {
   grid-template-columns: 2.5rem 1fr;
   grid-template-areas:
     'author author'
-    'vote body';
+    'vote body'
+    "btn btn";
   margin: 0.5rem 0;
   padding: 8px;
   place-items: start;
@@ -457,4 +458,19 @@ a {
   font-size: 2rem;
   margin-top: 1rem;
   color: colour(col-1);
+}
+
+.remove-comment {
+  margin: 0.5rem;
+  grid-area: btn;
+  place-self: center;
+}
+
+.remove-comment__btn {
+  background-color: colour(col-1);
+  color: colour(col-3);
+  border-style: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-transform: uppercase;
 }

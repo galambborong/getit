@@ -331,7 +331,7 @@ a {
   border-radius: 4px;
   display: grid;
   grid-template-columns: 2.5rem 1fr;
-  grid-template-areas: "author author" "vote body";
+  grid-template-areas: "author author" "vote body" "btn btn";
   margin: 0.5rem 0;
   padding: 8px;
   place-items: start;
@@ -417,6 +417,21 @@ a {
   font-size: 2rem;
   margin-top: 1rem;
   color: #023480;
+}
+
+.remove-comment {
+  margin: 0.5rem;
+  grid-area: btn;
+  place-self: center;
+}
+
+.remove-comment__btn {
+  background-color: #023480;
+  color: #fff;
+  border-style: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=App.css.map */
