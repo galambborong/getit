@@ -9,7 +9,7 @@ const ArticleCard = ({ article }) => {
     created_at,
     comment_count,
     article_id,
-    votes
+    votes,
   } = article;
 
   const sentence = handleSentence(body);
@@ -23,7 +23,7 @@ const ArticleCard = ({ article }) => {
       </p>
       <p className="article-card__date">{date}</p>
       <p className="article-card__votes">
-        <i className="fas fa-thumbs-up accent"></i> {votes}
+        <i className="fas fa-thumbs-up accent" /> {votes}
       </p>
       <p className="article-card__blurb">{sentence}&#8230;</p>
       <p className="article-card__comment-count">Comments {comment_count}</p>

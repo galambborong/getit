@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const req = axios.create({
-  baseURL: 'https://pk-nc-news.herokuapp.com/api'
+  baseURL: 'https://pk-nc-news.herokuapp.com/api',
 });
 
 export const fetchArticles = async (topic, username, sortBy, page, limit) => {
@@ -12,8 +12,8 @@ export const fetchArticles = async (topic, username, sortBy, page, limit) => {
       sort_by: sortBy,
       order: 'desc',
       p: page,
-      limit
-    }
+      limit,
+    },
   });
   return data;
 };
@@ -36,8 +36,8 @@ export const fetchArticleById = async (articleId) => {
 export const fetchCommentsByArticleId = async (articleId, sortBy) => {
   const { data } = await req.get(`/articles/${articleId}/comments`, {
     params: {
-      sort_by: sortBy
-    }
+      sort_by: sortBy,
+    },
   });
   return data.comments;
 };
@@ -45,13 +45,13 @@ export const fetchCommentsByArticleId = async (articleId, sortBy) => {
 export const patchVote = async (articleId, voteInc, commentId) => {
   if (articleId) {
     const { data } = await req.patch(`/articles/${articleId}`, {
-      inc_votes: voteInc
+      inc_votes: voteInc,
     });
     return data.article;
   }
   if (commentId) {
     const { data } = await req.patch(`/comments/${commentId}`, {
-      inc_votes: voteInc
+      inc_votes: voteInc,
     });
     return data.comment;
   }
@@ -60,11 +60,11 @@ export const patchVote = async (articleId, voteInc, commentId) => {
 export const postComment = async (articleId, username, body) => {
   const { data } = await req.post(`/articles/${articleId}/comments`, {
     username,
-    body
+    body,
   });
   return data.comment;
 };
 
 export const removeComment = async (commentId) => {
-  await req.delete(`/comments/${commentId}`)
-}
+  await req.delete(`/comments/${commentId}`);
+};

@@ -13,66 +13,80 @@ class CommentsList extends React.Component {
     sort_by: 'votes',
     newComment: null,
     commentRemoved: null,
-    username: "tickle122"
+    username: 'tickle122',
   };
 
   sortListOrder = (event) => {
-    this.setState({sort_by: event});
+    this.setState({ sort_by: event });
   };
 
   confirmComment = () => {
-    this.setState({newComment: true});
+    this.setState({ newComment: true });
   };
-
 
   confirmDelete = (commentId) => {
     removeComment(commentId).then(() => {
-      this.setState({commentRemoved: true});
-    })
-  }
+      this.setState({ commentRemoved: true });
+    });
+  };
 
   componentDidMount() {
-    const {sort_by} = this.state;
-    const {article_id} = this.props;
+    const { sort_by } = this.state;
+    const { article_id } = this.props;
     fetchCommentsByArticleId(article_id, sort_by)
       .then((comments) => {
-        this.setState({comments, loading: false, error: false});
+        this.setState({ comments, loading: false, error: false });
       })
       .catch((err) => {
         console.dir(err);
-        this.setState({error: true});
+        this.setState({ error: true });
       });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const {sort_by, newComment, commentRemoved} = this.state;
-    const {article_id} = this.props;
-    if (prevState.sort_by !== sort_by || prevState.newComment !== newComment || prevState.commentRemoved !== commentRemoved) {
+    const { sort_by, newComment, commentRemoved } = this.state;
+    const { article_id } = this.props;
+    if (
+      prevState.sort_by !== sort_by ||
+      prevState.newComment !== newComment ||
+      prevState.commentRemoved !== commentRemoved
+    ) {
       fetchCommentsByArticleId(article_id, sort_by)
         .then((comments) => {
-          this.setState({comments, newComment: null, commentRemoved: null});
+          this.setState({ comments, newComment: null, commentRemoved: null });
         })
         .catch((err) => {
           console.dir(err);
-          this.setState({error: true, commentRemoved: false, newComment: false});
+          this.setState({
+            error: true,
+            commentRemoved: false,
+            newComment: false,
+          });
         });
     }
   }
 
   render() {
-    const {loading, comments, username} = this.state;
-    const {uri, article_id} = this.props;
+    const { loading, comments, username } = this.state;
+    const { uri, article_id } = this.props;
 
-    if (loading) return <Loading/>;
+    if (loading) return <Loading />;
 
     return (
       <div>
         <main className="comments">
           <h2 className="comments__title">Comments</h2>
-          <SortList sortListOrder={this.sortListOrder} uri={uri}/>
+          <SortList sortListOrder={this.sortListOrder} uri={uri} />
           <section className="comments-container">
             {comments.map((comment) => {
-              return <Comment comment={comment} key={comment.comment_id} confirmDelete={this.confirmDelete} user={username} />
+              return (
+                <Comment
+                  comment={comment}
+                  key={comment.comment_id}
+                  confirmDelete={this.confirmDelete}
+                  user={username}
+                />
+              );
             })}
           </section>
         </main>

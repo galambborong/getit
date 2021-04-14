@@ -1,5 +1,4 @@
-const Error = (props) => {
-  const { error } = props;
+const Error = ({ error }) => {
   if (error) {
     const { response } = error;
     const { status, statusText } = response;

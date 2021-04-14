@@ -1,12 +1,12 @@
 const SortList = ({ sortListOrder, uri }) => {
-  let mainClassName = '';
+  let mainClassName;
   !uri
     ? (mainClassName = 'sorting')
     : (mainClassName = 'sorting sorting--comment');
 
   return (
     <div className={mainClassName}>
-      <i className="fas fa-sort-amount-down sorting__sorter"></i>
+      <i className="fas fa-sort-amount-down sorting__sorter" />
       <button onClick={() => sortListOrder('votes')} className="sorting__btn">
         Votes
       </button>

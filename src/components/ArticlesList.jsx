@@ -14,7 +14,7 @@ class ArticlesList extends React.Component {
     sort_by: 'votes',
     page: 1,
     limit: 10,
-    totalArticle: 0
+    totalArticle: 0,
   };
 
   sortListOrder = (event) => {
@@ -25,7 +25,7 @@ class ArticlesList extends React.Component {
     this.setState((currState) => {
       return {
         page: currState.page + increment,
-        loading: true
+        loading: true,
       };
     });
   };
@@ -39,7 +39,7 @@ class ArticlesList extends React.Component {
           articles,
           error: false,
           loading: false,
-          totalArticle: total_count
+          totalArticle: total_count,
         });
       })
       .catch((error) => {

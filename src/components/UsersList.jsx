@@ -8,7 +8,7 @@ class UsersList extends React.Component {
   state = {
     loading: true,
     error: null,
-    users: []
+    users: [],
   };
 
   componentDidMount() {

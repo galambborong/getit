@@ -8,7 +8,7 @@ class TopicsList extends React.Component {
   state = {
     loading: true,
     error: null,
-    topics: []
+    topics: [],
   };
 
   componentDidMount() {
@@ -31,8 +31,9 @@ class TopicsList extends React.Component {
         <h2 className="topics__header">Browse by topic...</h2>
         <ul className="topics__list">
           {topics.map((topic) => {
+            const { slug } = topic;
             return (
-              <li className="topics__link" key={topic.slug}>
+              <li className="topics__link" key={slug}>
                 <TopicCard topic={topic} />
               </li>
             );

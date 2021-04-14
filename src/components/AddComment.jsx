@@ -7,7 +7,7 @@ class AddComment extends React.Component {
     username: 'tickle122',
     body: '',
     error: null,
-    success: null
+    success: null,
   };
 
   handleChange = (event) => {
@@ -21,15 +21,15 @@ class AddComment extends React.Component {
     const { username, body } = this.state;
     if (body.length > 0) {
       postComment(article_id, username, body)
-          .then(() => {
-            confirmComment();
-            this.setState({ success: true });
-            navigate(`/articles/${article_id}/comments`);
-          })
-          .catch((err) => {
-            console.dir(err);
-            this.setState({ error: true, body: "" });
-          });
+        .then(() => {
+          confirmComment();
+          this.setState({ success: true });
+          navigate(`/articles/${article_id}/comments`);
+        })
+        .catch((err) => {
+          console.dir(err);
+          this.setState({ error: true, body: '' });
+        });
     }
   };
 
@@ -48,7 +48,9 @@ class AddComment extends React.Component {
       return (
         <section className="add-comment">
           <h3 className="add-comment__header">Comment not posted</h3>
-          <p className="add-comment__msg">There was an error posting your comment</p>
+          <p className="add-comment__msg">
+            There was an error posting your comment
+          </p>
         </section>
       );
     }
@@ -82,7 +84,7 @@ class AddComment extends React.Component {
             className="comment-form__input"
             value={body}
             onChange={this.handleChange}
-            />
+          />
           <button className="comment-form__btn" type="submit">
             Submit your comment
           </button>

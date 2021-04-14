@@ -4,7 +4,7 @@ import { patchVote } from '../utils/api';
 class UpdateVotes extends React.Component {
   state = {
     votesChange: 0,
-    hasVoted: false
+    hasVoted: false,
   };
 
   handleClick = (articleId, increment, commentId) => {
@@ -12,7 +12,7 @@ class UpdateVotes extends React.Component {
       this.setState((currentState) => {
         return {
           votesChange: currentState.votesChange + increment,
-          hasVoted: true
+          hasVoted: true,
         };
       });
       patchVote(articleId, increment, commentId).catch((err) => {
@@ -20,7 +20,7 @@ class UpdateVotes extends React.Component {
         this.setState((currState) => {
           return {
             votesChange: currState.votesChange - increment,
-            hasVoted: false
+            hasVoted: false,
           };
         });
       });
@@ -31,7 +31,7 @@ class UpdateVotes extends React.Component {
     const { article_id, votes, comment_id } = this.props;
     const { votesChange, hasVoted } = this.state;
 
-    let mainClassName = '';
+    let mainClassName;
 
     !comment_id
       ? (mainClassName = 'vote')
@@ -44,7 +44,7 @@ class UpdateVotes extends React.Component {
           disabled={hasVoted}
           onClick={() => this.handleClick(article_id, 1, comment_id)}
         >
-          <i className="fas fa-thumbs-up"></i>
+          <i className="fas fa-thumbs-up" />
         </button>
         {votes + votesChange}
         <button
@@ -52,7 +52,7 @@ class UpdateVotes extends React.Component {
           disabled={hasVoted}
           onClick={() => this.handleClick(article_id, -1, comment_id)}
         >
-          <i className="fas fa-thumbs-down"></i>
+          <i className="fas fa-thumbs-down" />
         </button>
       </div>
     );
