@@ -1,18 +1,6 @@
-import {removeComment} from "../utils/api";
-
-const RemoveComment = ({commentId, user, author, confirmDelete}) => {
-
-  const checkRemove = () => {
-    if (user === author) {
-      removeComment(commentId).then(() => {
-        console.log("Comment removed")
-        confirmDelete()
-      })
-    }
-  }
-
-  return <div>
-    <button onClick={checkRemove}>Delete comment</button>
+const RemoveComment = ({commentId, confirmDelete}) => {
+  return <div className="remove-comment">
+    <button className="remove-comment__btn" onClick={() => confirmDelete(commentId)}>Delete comment</button>
   </div>
 }
 

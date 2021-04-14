@@ -1,5 +1,5 @@
 import React from 'react';
-import {fetchCommentsByArticleId} from '../utils/api';
+import { fetchCommentsByArticleId, removeComment } from '../utils/api';
 import Loading from './Loading';
 import Comment from './Comment';
 import SortList from './SortList';
@@ -12,7 +12,8 @@ class CommentsList extends React.Component {
     comments: [],
     sort_by: 'votes',
     newComment: null,
-    commentRemoved: null
+    commentRemoved: null,
+    username: "tickle122"
   };
 
   sortListOrder = (event) => {
@@ -23,10 +24,11 @@ class CommentsList extends React.Component {
     this.setState({newComment: true});
   };
 
-  confirmDelete = () => {
-    console.log("Delete is working")
 
-    this.setState({commentRemoved: true});
+  confirmDelete = (commentId) => {
+    removeComment(commentId).then(() => {
+      this.setState({commentRemoved: true});
+    })
   }
 
   componentDidMount() {
@@ -48,17 +50,17 @@ class CommentsList extends React.Component {
     if (prevState.sort_by !== sort_by || prevState.newComment !== newComment || prevState.commentRemoved !== commentRemoved) {
       fetchCommentsByArticleId(article_id, sort_by)
         .then((comments) => {
-          this.setState({comments, newComment: null});
+          this.setState({comments, newComment: null, commentRemoved: null});
         })
         .catch((err) => {
           console.dir(err);
-          this.setState({error: true});
+          this.setState({error: true, commentRemoved: false, newComment: false});
         });
     }
   }
 
   render() {
-    const {loading, comments} = this.state;
+    const {loading, comments, username} = this.state;
     const {uri, article_id} = this.props;
 
     if (loading) return <Loading/>;
@@ -70,7 +72,7 @@ class CommentsList extends React.Component {
           <SortList sortListOrder={this.sortListOrder} uri={uri}/>
           <section className="comments-container">
             {comments.map((comment) => {
-              return <Comment comment={comment} key={comment.comment_id} commentRemoved={this.confirmDelete}/>
+              return <Comment comment={comment} key={comment.comment_id} confirmDelete={this.confirmDelete} user={username} />
             })}
           </section>
         </main>

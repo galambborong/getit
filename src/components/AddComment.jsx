@@ -34,7 +34,7 @@ class AddComment extends React.Component {
   };
 
   render() {
-    const { success, error } = this.state;
+    const { success, error, username, body } = this.state;
 
     if (success) {
       return (
@@ -70,7 +70,7 @@ class AddComment extends React.Component {
             name="username"
             id="username"
             className="comment-form__input"
-            value={this.state.username}
+            value={username}
             onChange={this.handleChange}
           />
           <label id="lbl-body" className="comment-form__label" htmlFor="body">
@@ -80,7 +80,7 @@ class AddComment extends React.Component {
             name="body"
             id="body"
             className="comment-form__input"
-            value={this.state.body}
+            value={body}
             onChange={this.handleChange}
             />
           <button className="comment-form__btn" type="submit">
