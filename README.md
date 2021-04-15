@@ -6,7 +6,7 @@ This is a Reddit-like news/content-sharing site. This repository is the front en
 
 ## See it in action
 
-You can preview this project live at [getit.peterkeenan.co.uk](http://getit.peterkeenan.co.uk). You are also welcome to follow these steps to sample it locally, providing you have Git and Node installed. (Note, this project was built using Node v14.15.3.)
+You can preview this project live at [getit.peterkeenan.co.uk](https://getit.peterkeenan.co.uk). You are also welcome to follow these steps to sample it locally, providing you have Git and Node installed. (Note, this project was built using Node v14.15.3.)
 
 1. Clone the repo
 2. Within the directory `getit`, run `npm i` to install all dependencies
