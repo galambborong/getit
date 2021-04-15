@@ -27,5 +27,3 @@ const Paginate = ({ changePage, page, limit, totalArticle }) => {
 };
 
 export default Paginate;
-
-// TODO: this doesn't currently work for filtered list (by topic, etc), as totalArticle reflects the grand total
