@@ -39,6 +39,7 @@ a {
 }
 
 .header {
+  grid-area: header;
   height: 15vh;
   background-color: colour(col-1);
   display: grid;
@@ -473,4 +474,39 @@ a {
   border-radius: 4px;
   padding: 0.5rem;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 900px) {
+
+  body {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .nav {
+    grid-area: nav;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 5rem);
+    min-height: 100%;
+    place-items: center;
+  }
+
+  .articles,
+  .topics,
+  .article,
+  .comments,
+  .users {
+    grid-area: main;
+    width: calc(900px - 200px - 2rem);
+  }
+
+  .App {
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "header header header"
+    "nav main main";
+  }
 }
