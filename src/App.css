@@ -466,6 +466,8 @@ a {
   .articles,
 .topics,
 .article,
+.loading,
+.error,
 .comments,
 .users {
     grid-area: main;
