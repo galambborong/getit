@@ -382,7 +382,7 @@ a {
   place-self: start;
   font-size: 1.2rem;
   color: colour(col-1);
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 .comment-card__body {
@@ -483,6 +483,10 @@ a {
     margin: auto;
   }
 
+  html {
+    background-color: colour(col-6)
+  }
+
   .nav {
     grid-area: nav;
     grid-template-columns: 1fr;
@@ -498,6 +502,16 @@ a {
   .users {
     grid-area: main;
     width: calc(900px - 200px - 2rem);
+    min-height: calc(85vh - 3rem);
+  }
+
+  .add-comment {
+    grid-area: add-comment;
+    max-width: 700px;
+  }
+
+  .comment-form, .comment-form__btn {
+    max-width: 700px
   }
 
   .App {
@@ -507,6 +521,7 @@ a {
     grid-template-rows: auto;
     grid-template-areas:
     "header header header"
-    "nav main main";
+    "nav main main"
+    "add-comment add-comment add-comment";
   }
 }

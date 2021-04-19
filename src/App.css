@@ -292,7 +292,7 @@ a {
   place-self: start;
   font-size: 1.2rem;
   color: #023480;
-  margin: 1rem 0; }
+  margin-bottom: 1rem; }
 
 .comment-card__body {
   grid-area: body; }
@@ -375,6 +375,8 @@ a {
   body {
     max-width: 900px;
     margin: auto; }
+  html {
+    background-color: #cbf7f1; }
   .nav {
     grid-area: nav;
     grid-template-columns: 1fr;
@@ -387,10 +389,16 @@ a {
   .comments,
   .users {
     grid-area: main;
-    width: calc(900px - 200px - 2rem); }
+    width: calc(900px - 200px - 2rem);
+    min-height: calc(85vh - 3rem); }
+  .add-comment {
+    grid-area: add-comment;
+    max-width: 700px; }
+  .comment-form, .comment-form__btn {
+    max-width: 700px; }
   .App {
     display: grid;
     max-width: 900px;
     grid-template-columns: 200px 1fr 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "header header header" "nav main main"; } }
+    grid-template-areas: "header header header" "nav main main" "add-comment add-comment add-comment"; } }
