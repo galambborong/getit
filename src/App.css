@@ -1,36 +1,43 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   background: #f9df89;
   margin: auto;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
 
 a {
   text-decoration: none;
-  color: #fff; }
+  color: #fff;
+}
 
 .accent {
-  color: #cf4e03; }
+  color: #cf4e03;
+}
 
 .accent--mod {
   text-transform: uppercase;
   font-weight: 700;
-  font-style: normal; }
+  font-style: normal;
+}
 
 .header {
   grid-area: header;
   height: 15vh;
   background-color: #023480;
   display: grid;
-  place-items: center; }
+  place-items: center;
+}
 
 .header__title {
   flex-grow: 1;
   text-align: center;
-  color: #cbf7f1; }
+  color: #cbf7f1;
+}
 
 .nav {
   background-color: #82c2a2;
@@ -38,13 +45,15 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
-  place-items: center; }
+  place-items: center;
+}
 
 .nav__link {
   color: #023480;
   text-transform: uppercase;
   text-decoration: none;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 .articles,
 .topics,
@@ -52,7 +61,8 @@ a {
 .comments,
 .users {
   margin: 1rem;
-  width: calc(100vw - 2rem); }
+  width: calc(100vw - 2rem);
+}
 
 .articles__header,
 .topics__header,
@@ -61,16 +71,19 @@ a {
   color: #023480;
   text-align: center;
   margin: 2rem 1rem;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+}
 
 .articles__header--user {
-  text-transform: none; }
+  text-transform: none;
+}
 
 .articles-container,
 .comments-container,
 .users-container {
   display: grid;
-  grid-template-columns: 1fr; }
+  grid-template-columns: 1fr;
+}
 
 .article-card {
   background-color: #fff;
@@ -78,40 +91,47 @@ a {
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'title title' 'author date' 'body body' 'votes comments' 'link link';
+  grid-template-areas: "title title" "author date" "body body" "votes comments" "link link";
   margin: 0.5rem 0;
   padding: 8px;
-  place-items: center; }
+  place-items: center;
+}
 
 .article-card__title {
   grid-area: title;
   text-align: center;
   min-height: 2rem;
   margin: 0.5rem;
-  color: #023480; }
+  color: #023480;
+}
 
 .article-card__author {
   grid-area: author;
   justify-self: left;
   color: #023480;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 .article-card__date {
   grid-area: date;
-  justify-self: right; }
+  justify-self: right;
+}
 
 .article-card__votes {
   grid-area: votes;
-  justify-self: left; }
+  justify-self: left;
+}
 
 .article-card__blurb {
   grid-area: body;
   margin: 0.5rem 0;
-  place-self: start; }
+  place-self: start;
+}
 
 .article-card__comment-count {
   grid-area: comments;
-  justify-self: right; }
+  justify-self: right;
+}
 
 .article-card__btn {
   grid-area: link;
@@ -122,13 +142,15 @@ a {
   border-style: none;
   border-radius: 4px;
   padding: 5px;
-  font-size: 1rem; }
+  font-size: 1rem;
+}
 
 .pagination {
   font-size: 1.25rem;
   font-weight: 500;
   text-align: center;
-  color: #023480; }
+  color: #023480;
+}
 
 .pagination__btn {
   margin: 0.5rem;
@@ -137,15 +159,23 @@ a {
   border-style: none;
   border-radius: 4px;
   background-color: #023480;
-  color: #fff; }
+  color: #fff;
+}
+
+.pagination__btn:disabled {
+  background-color: #4a5f80;
+  color: #c5c5c5;
+}
 
 .sorting {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+}
 
 .sorting--comment {
-  grid-template-columns: repeat(4, 1fr); }
+  grid-template-columns: repeat(4, 1fr);
+}
 
 .sorting__btn {
   background-color: #023480;
@@ -153,50 +183,61 @@ a {
   border: none;
   margin: 3px;
   padding: 5px;
-  border-radius: 4px; }
+  border-radius: 4px;
+}
 
 .sorting__sorter {
   font-size: 2.5rem;
   color: #023480;
-  place-self: center; }
+  place-self: center;
+}
 
 .topics__list {
   list-style: none;
-  margin-left: 2rem; }
+  margin-left: 2rem;
+}
 
 .topics__link {
-  margin: 1rem; }
+  margin: 1rem;
+}
 
 .topics__link > a {
   color: #023480;
-  font-style: oblique; }
+  font-style: oblique;
+}
 
 .article {
   display: grid;
   grid-template-columns: 2.4rem 2fr 2fr;
-  grid-template-areas: 'title title title' 'author author author' 'topic date date' 'votes body body' 'see-comments see-comments see-comments' 'add-comment add-comment add-comment'; }
+  grid-template-areas: "title title title" "author author author" "topic date date" "votes body body" "see-comments see-comments see-comments" "add-comment add-comment add-comment";
+}
 
 .article__header {
-  grid-area: title; }
+  grid-area: title;
+}
 
 .article__author {
   grid-area: author;
   justify-self: center;
   margin: 1rem;
-  color: #023480; }
+  color: #023480;
+}
 
 .article__body {
   grid-area: body;
-  margin: 1rem 0; }
+  margin: 1rem 0;
+}
 
 .article__date {
   grid-area: date;
   color: #023480;
-  justify-self: end; }
+  justify-self: end;
+}
 
 .article__topic {
   grid-area: topic;
-  color: #023480; }
+  color: #023480;
+}
 
 .article__comments {
   grid-area: see-comments;
@@ -204,7 +245,8 @@ a {
   color: #023480;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0.5rem; }
+  margin: 0.5rem;
+}
 
 .vote {
   grid-area: votes;
@@ -213,59 +255,76 @@ a {
   grid-template-columns: 1fr;
   place-self: start;
   font-size: 1.5rem;
-  text-align: center; }
+  text-align: center;
+}
 
 .vote__btn {
   border-style: none;
   border-radius: 4px;
   background-color: #023480;
   color: #fff;
-  padding: 5px; }
+  padding: 5px;
+}
+
+.vote__btn:disabled {
+  background-color: #4a5f80;
+  color: #c5c5c5;
+}
 
 .add-comment {
   grid-area: add-comment;
-  background-color: #82c2a2; }
+  background-color: #82c2a2;
+}
 
 .add-comment__header {
   margin: 1rem;
   text-align: center;
   color: #023480;
   text-transform: uppercase;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+}
 
 .add-comment__msg {
   text-align: center;
   color: #023480;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+}
 
 .comment-form {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-areas: 'user-label user-input' 'body-label body-input' 'body-label body-input' 'btn btn';
-  width: 100vw; }
+  grid-template-areas: "user-label user-input" "body-label body-input" "body-label body-input" "btn btn";
+  width: 100vw;
+}
 
 .comment-form__label {
   color: #023480;
   align-self: start;
-  justify-self: center; }
+  justify-self: center;
+}
 
 .comment-form__input {
   width: 90%;
   margin-bottom: 1rem;
-  place-self: center; }
+  place-self: center;
+}
 
 #lbl-username {
-  grid-area: user-label; }
+  grid-area: user-label;
+}
 
 #username {
-  grid-area: user-input; }
+  grid-area: user-input;
+}
 
 #lbl-body {
-  grid-area: body-label; }
+  grid-area: body-label;
+}
 
 #body {
   grid-area: body-input;
-  height: 100%; }
+  height: 100%;
+}
 
 .comment-form__btn {
   background-color: #023480;
@@ -274,7 +333,8 @@ a {
   color: #fff;
   padding: 10px;
   grid-area: btn;
-  width: 100vw; }
+  width: 100vw;
+}
 
 .comment-card {
   background-color: #fff;
@@ -282,20 +342,23 @@ a {
   border-radius: 4px;
   display: grid;
   grid-template-columns: 2.5rem 1fr;
-  grid-template-areas: 'author author' 'vote body' "btn btn";
+  grid-template-areas: "author author" "vote body" "btn btn";
   margin: 0.5rem 0;
   padding: 8px;
-  place-items: start; }
+  place-items: start;
+}
 
 .comment-card__author {
   grid-area: author;
   place-self: start;
   font-size: 1.2rem;
   color: #023480;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+}
 
 .comment-card__body {
-  grid-area: body; }
+  grid-area: body;
+}
 
 .comment-card__vote {
   grid-area: vote;
@@ -304,64 +367,74 @@ a {
   text-align: center;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr; }
+  grid-template-columns: 1fr;
+}
 
 .user {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: 'img username' 'img btn';
+  grid-template-areas: "img username" "img btn";
   background-color: #fff;
   border: 2px solid #cf4e03;
   border-radius: 4px;
   margin: 0.5rem 0;
-  place-items: center; }
+  place-items: center;
+}
 
 .user__img {
   width: 80px;
   grid-area: img;
   place-self: start;
-  margin: 5px; }
+  margin: 5px;
+}
 
 .user__username {
   font-size: 1rem;
   grid-area: username;
-  color: #023480; }
+  color: #023480;
+}
 
 .user__btn {
   grid-area: btn;
   border: none;
   border-radius: 4px;
   background-color: #023480;
-  padding: 4px 1rem; }
+  padding: 4px 1rem;
+}
 
 .loading,
 .error {
   height: calc(79vh - 2rem);
   margin: 1rem;
-  display: grid; }
+  display: grid;
+}
 
 .loading__header,
 .error__header {
   color: #023480;
   margin-bottom: 1rem;
   text-transform: lowercase;
-  place-self: end center; }
+  place-self: end center;
+}
 
 .error__header {
   font-size: 2rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .loading__spinner,
 .error__main {
   place-self: start center;
   font-size: 2rem;
   margin-top: 1rem;
-  color: #023480; }
+  color: #023480;
+}
 
 .remove-comment {
   margin: 0.5rem;
   grid-area: btn;
-  place-self: center; }
+  place-self: center;
+}
 
 .remove-comment__btn {
   background-color: #023480;
@@ -369,36 +442,54 @@ a {
   border-style: none;
   border-radius: 4px;
   padding: 0.5rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 @media screen and (min-width: 900px) {
   body {
     max-width: 900px;
-    margin: auto; }
+    margin: auto;
+  }
+
   html {
-    background-color: #cbf7f1; }
+    background-color: #cbf7f1;
+  }
+
   .nav {
     grid-area: nav;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 5rem);
     min-height: 100%;
-    place-items: center; }
+    place-items: center;
+  }
+
   .articles,
-  .topics,
-  .article,
-  .comments,
-  .users {
+.topics,
+.article,
+.comments,
+.users {
     grid-area: main;
     width: calc(900px - 200px - 2rem);
-    min-height: calc(85vh - 3rem); }
+    min-height: calc(85vh - 3rem);
+  }
+
   .add-comment {
     grid-area: add-comment;
-    max-width: 700px; }
-  .comment-form, .comment-form__btn {
-    max-width: 700px; }
+    max-width: 700px;
+  }
+
+  .comment-form,
+.comment-form__btn {
+    max-width: 700px;
+  }
+
   .App {
     display: grid;
     max-width: 900px;
     grid-template-columns: 200px 1fr 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "header header header" "nav main main" "add-comment add-comment add-comment"; } }
+    grid-template-areas: "header header header" "nav main main" "add-comment add-comment add-comment";
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

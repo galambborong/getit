@@ -5,12 +5,12 @@
 }
 
 $colours: (
-        col-1: #023480,
-        col-2: #82c2a2,
-        col-3: #fff,
-        col-4: #f9df89,
-        col-5: #cf4e03,
-        col-6: #cbf7f1
+  col-1: #023480,
+  col-2: #82c2a2,
+  col-3: #fff,
+  col-4: #f9df89,
+  col-5: #cf4e03,
+  col-6: #cbf7f1
 );
 
 @function colour($colour-name) {
@@ -185,6 +185,11 @@ a {
   color: colour(col-3);
 }
 
+.pagination__btn:disabled {
+  background-color: #4a5f80;
+  color: rgb(197, 197, 197);
+}
+
 .sorting {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -291,6 +296,11 @@ a {
   padding: 5px;
 }
 
+.vote__btn:disabled {
+  background-color: #4a5f80;
+  color: rgb(197, 197, 197);
+}
+
 .add-comment {
   grid-area: add-comment;
   background-color: colour(col-2);
@@ -371,7 +381,7 @@ a {
   grid-template-areas:
     'author author'
     'vote body'
-    "btn btn";
+    'btn btn';
   margin: 0.5rem 0;
   padding: 8px;
   place-items: start;
@@ -477,14 +487,13 @@ a {
 }
 
 @media screen and (min-width: 900px) {
-
   body {
     max-width: 900px;
     margin: auto;
   }
 
   html {
-    background-color: colour(col-6)
+    background-color: colour(col-6);
   }
 
   .nav {
@@ -510,8 +519,9 @@ a {
     max-width: 700px;
   }
 
-  .comment-form, .comment-form__btn {
-    max-width: 700px
+  .comment-form,
+  .comment-form__btn {
+    max-width: 700px;
   }
 
   .App {
@@ -520,8 +530,8 @@ a {
     grid-template-columns: 200px 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "header header header"
-    "nav main main"
-    "add-comment add-comment add-comment";
+      'header header header'
+      'nav main main'
+      'add-comment add-comment add-comment';
   }
 }

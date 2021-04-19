@@ -11,7 +11,7 @@ class Article extends React.Component {
     loading: true,
     error: null,
     article: {},
-    newComment: null,
+    newComment: null
   };
 
   confirmComment = () => {
@@ -42,7 +42,7 @@ class Article extends React.Component {
       title,
       topic,
       votes,
-      article_id,
+      article_id
     } = article;
 
     const date = new Date(created_at);

@@ -7,7 +7,7 @@ class AddComment extends React.Component {
     username: 'tickle122',
     body: '',
     error: null,
-    success: null,
+    success: null
   };
 
   handleChange = (event) => {
