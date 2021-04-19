@@ -1,4 +1,5 @@
 const Paginate = ({ changePage, page, limit, totalArticle }) => {
+  const max = Math.floor(totalArticle / limit) + 1;
   return (
     <div className="pagination">
       <p>
@@ -11,9 +12,9 @@ const Paginate = ({ changePage, page, limit, totalArticle }) => {
         >
           <i className="fas fa-angle-double-left" />
         </button>
-        {page}
+        {page} / {max}
         <button
-          disabled={page === Math.floor(totalArticle / limit) + 1}
+          disabled={page === max}
           className="pagination__btn"
           onClick={() => {
             changePage(1);
