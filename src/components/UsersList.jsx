@@ -8,7 +8,7 @@ class UsersList extends React.Component {
   state = {
     loading: true,
     error: null,
-    users: [],
+    users: []
   };
 
   componentDidMount() {
@@ -29,6 +29,7 @@ class UsersList extends React.Component {
 
     return (
       <main className="users">
+        <h2 className="users__header">get:it authors</h2>
         <section className="users-container">
           {users.map((user) => {
             return <UserCard user={user} key={user.username} />;
