@@ -82,6 +82,7 @@ button {
 }
 
 .articles__header,
+.users__header,
 .topics__header,
 .article__header,
 .comments__title {
@@ -518,6 +519,10 @@ button {
     grid-area: main;
     width: calc(900px - 200px - 2rem);
     min-height: calc(85vh - 3rem);
+  }
+
+  .article {
+    align-items: start;
   }
 
   .add-comment {
