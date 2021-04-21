@@ -48,7 +48,7 @@ class Article extends React.Component {
     const date = new Date(created_at);
 
     return (
-      <div>
+      <div className="article-wrapper">
         <main className="article">
           <h2 className="article__header">{title}</h2>
           <h3 className="article__author">@{author}</h3>

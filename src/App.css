@@ -469,6 +469,7 @@ button {
   }
 
   .articles,
+.article,
 .topics,
 .loading,
 .error,
@@ -487,11 +488,6 @@ button {
   .comment-form,
 .comment-form__btn {
     max-width: 700px;
-  }
-
-  .article {
-    grid-area: main;
-    width: calc(900px - 200px - 2rem);
   }
 
   .App {
