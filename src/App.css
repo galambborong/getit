@@ -497,6 +497,4 @@ button {
     grid-template-rows: auto;
     grid-template-areas: "header header header" "nav main main" "add-comment add-comment add-comment";
   }
-}
-
-/*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */
