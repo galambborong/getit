@@ -3,7 +3,7 @@ import Nav from '../Nav';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-test('Hav component renders', () => {
+test('Nav component renders', () => {
   const { getByTestId } = render(<Nav />);
   const navElement = getByTestId('nav');
   expect(navElement).toBeTruthy();

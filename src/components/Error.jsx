@@ -4,9 +4,9 @@ const Error = ({ error }) => {
     const { status, statusText } = response;
 
     return (
-      <main className="error">
+      <main className="error" data-testid="error">
         <h2 className="error__header">Whoops!</h2>
-        <p className="error__main">
+        <p className="error__main" data-testid="error__msg">
           {status} &ndash; {statusText}
         </p>
       </main>
@@ -14,9 +14,11 @@ const Error = ({ error }) => {
   }
 
   return (
-    <main className="error">
+    <main className="error" data-testid="error">
       <h2 className="error__header">Whoops!</h2>
-      <p className="error__main">404 &ndash; Not Found</p>
+      <p className="error__main" data-testid="error__msg">
+        404 &ndash; Not Found
+      </p>
     </main>
   );
 };
