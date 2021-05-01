@@ -19,9 +19,11 @@ const ArticleCard = ({ article }) => {
     <article className="article-card" data-testid="article-card">
       <h3 className="article-card__title">{title}</h3>
       <p className="article-card__author" data-testid="article-card__author">
-        <span className="accent">@{author}</span>{' '}
+        <span className="accent">@{author}</span>
       </p>
-      <p className="article-card__date">{date}</p>
+      <p className="article-card__date" data-testid="article-card__date">
+        {date}
+      </p>
       <p className="article-card__votes">
         <i className="fas fa-thumbs-up accent" /> {votes}
       </p>

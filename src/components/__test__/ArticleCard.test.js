@@ -25,8 +25,14 @@ test('ArticleCard header renders expected text', () => {
   expect(articleCardHeader).toHaveTextContent('testing! 1, 2, 3');
 });
 
-test('ArticleCard header renders expected text', () => {
+test('ArticleCard author renders expected text', () => {
   const { getByTestId } = render(<ArticleCard article={sampleArticle} />);
   const articleCardAuthor = getByTestId('article-card__author');
   expect(articleCardAuthor).toHaveTextContent('@galambborong');
+});
+
+test('ArticleCard date is correct', () => {
+  const { getByTestId } = render(<ArticleCard article={sampleArticle} />);
+  const articleCardDate = getByTestId('article-card__date');
+  expect(articleCardDate).toHaveTextContent(new Date().toDateString());
 });
