@@ -9,16 +9,16 @@ const ArticleCard = ({ article }) => {
     created_at,
     comment_count,
     article_id,
-    votes,
+    votes
   } = article;
 
   const sentence = handleSentence(body);
   const date = new Date(created_at).toDateString();
 
   return (
-    <article className="article-card">
+    <article className="article-card" data-testid="article-card">
       <h3 className="article-card__title">{title}</h3>
-      <p className="article-card__author">
+      <p className="article-card__author" data-testid="article-card__author">
         <span className="accent">@{author}</span>{' '}
       </p>
       <p className="article-card__date">{date}</p>
