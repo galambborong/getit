@@ -9,7 +9,7 @@ test('Error component renders', async () => {
   expect(errorElement).toBeTruthy();
 });
 
-test('Renders 404 when passed no props', () => {
+test('Render 404 when passed no props', () => {
   const { getByTestId } = render(<Error />);
   const errorElement = getByTestId('error__msg');
   expect(errorElement).toHaveTextContent('404 – Not Found');
