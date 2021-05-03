@@ -54,6 +54,7 @@ test("Blurb is only single sentence", () => {
   const articleBlurb = getByTestId('article-card__blurb')
   const fullStop = /\./
   const finalChar = articleBlurb.textContent.substr(-1)
+  expect(articleBlurb).toHaveTextContent("This is a test article…")
   expect(fullStop.test(articleBlurb.textContent)).toBe(false)
   expect(finalChar).toBe(String.fromCharCode(8230))
 })
