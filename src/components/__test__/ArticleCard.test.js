@@ -38,23 +38,23 @@ test('Date is correct', () => {
 });
 
 test('Vote renders number one', () => {
-  const {getByTestId} = render(<ArticleCard article={sampleArticle}/>)
-  const articleVotes = getByTestId('article-card__votes')
-  expect(articleVotes.textContent.trim()).toBe("1")
-})
+  const { getByTestId } = render(<ArticleCard article={sampleArticle} />);
+  const articleVotes = getByTestId('article-card__votes');
+  expect(articleVotes.textContent.trim()).toBe('1');
+});
 
 test('Comment count renders two', () => {
-  const {getByTestId} = render(<ArticleCard article={sampleArticle} />);
-  const articleCommentCount = getByTestId('article-card__comment-count')
-  expect(articleCommentCount.textContent.substr(-1)).toBe("2")
-})
+  const { getByTestId } = render(<ArticleCard article={sampleArticle} />);
+  const articleCommentCount = getByTestId('article-card__comment-count');
+  expect(articleCommentCount.textContent.substr(-1)).toBe('2');
+});
 
-test("Blurb is only single sentence", () => {
-  const {getByTestId} = render(<ArticleCard article={sampleArticle} />);
-  const articleBlurb = getByTestId('article-card__blurb')
-  const fullStop = /\./
-  const finalChar = articleBlurb.textContent.substr(-1)
-  expect(articleBlurb).toHaveTextContent("This is a test article…")
-  expect(fullStop.test(articleBlurb.textContent)).toBe(false)
-  expect(finalChar).toBe(String.fromCharCode(8230))
-})
+test('Blurb is only single sentence', () => {
+  const { getByTestId } = render(<ArticleCard article={sampleArticle} />);
+  const articleBlurb = getByTestId('article-card__blurb');
+  const fullStop = /\./;
+  const finalChar = articleBlurb.textContent.substr(-1);
+  expect(articleBlurb).toHaveTextContent('This is a test article…');
+  expect(fullStop.test(articleBlurb.textContent)).toBe(false);
+  expect(finalChar).toBe(String.fromCharCode(8230));
+});
