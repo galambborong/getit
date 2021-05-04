@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleCard from '../ArticleCard';
-import { getByRole, render } from '@testing-library/react';
+import { fireEvent, render, waitForDomChange } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 const sampleArticle = {
@@ -57,4 +57,10 @@ test('Blurb is only single sentence', () => {
   expect(articleBlurb).toHaveTextContent('This is a test article…');
   expect(fullStop.test(articleBlurb.textContent)).toBe(false);
   expect(finalChar).toBe(String.fromCharCode(8230));
+});
+
+test('Button navigates to article 99', () => {
+  const { getByText } = render(<ArticleCard article={sampleArticle} />);
+  const articleBtn = getByText(/Read the full article here/i);
+  expect(articleBtn).toHaveAttribute('href', '/articles/99');
 });
