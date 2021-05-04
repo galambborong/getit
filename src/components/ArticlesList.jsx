@@ -82,7 +82,7 @@ class ArticlesList extends React.Component {
 
     if (!loading && path === '/') {
       return (
-        <main className="articles">
+        <main className="articles" data-testid="articles">
           <h2 className="articles__header">
             Some reading to get you started...
           </h2>
@@ -96,7 +96,7 @@ class ArticlesList extends React.Component {
     }
 
     return (
-      <main className="articles">
+      <main className="articles" data-testid="articles">
         {topic && <h2 className="articles__header">{topic} articles</h2>}
         {username && (
           <h2 className="articles__header articles__header--user">

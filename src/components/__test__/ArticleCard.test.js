@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleCard from '../ArticleCard';
-import { fireEvent, render, waitForDomChange } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 const sampleArticle = {
