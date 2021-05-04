@@ -19,3 +19,13 @@ test('Nav component renders with correct links', () => {
   expect(navElement).toContainElement(navArticles);
   expect(navElement).toContainElement(navUsers);
 });
+
+test('Links point to correct urls', () => {
+  const { getByTestId } = render(<Nav />);
+  const navTopic = getByTestId('nav__topic');
+  const navArticles = getByTestId('nav__articles');
+  const navUsers = getByTestId('nav__users');
+  expect(navTopic).toHaveAttribute('href', '/topics');
+  expect(navArticles).toHaveAttribute('href', '/articles');
+  expect(navUsers).toHaveAttribute('href', '/users');
+});
