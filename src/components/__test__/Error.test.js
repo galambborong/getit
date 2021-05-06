@@ -17,8 +17,12 @@ test('Render 404 when passed no props', () => {
 
 test('Render specific error message when provided', () => {
   const { getByTestId } = render(
-    <Error error={{ response: { status: 400, statusText: 'Bad request' } }} />
+    <Error
+      error={{
+        response: { status: 400, statusText: 'Bad request test message' }
+      }}
+    />
   );
   const errorElement = getByTestId('error__msg');
-  expect(errorElement).toHaveTextContent('400 – Bad request');
+  expect(errorElement).toHaveTextContent('400 – Bad request test message');
 });
