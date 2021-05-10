@@ -6,8 +6,7 @@ import Paginate from './Paginate';
 import SortList from './SortList';
 import Error from './Error';
 
-export const ArticlesList = (props) => {
-  console.log(props);
+export const ArticlesList = ({ topic, username, path }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
@@ -26,7 +25,6 @@ export const ArticlesList = (props) => {
   };
 
   useEffect(() => {
-    const { topic, username } = props;
     fetchArticles(topic, username, sort_by, page, limit)
       .then(({ articles, total_count }) => {
         setArticles(articles);
@@ -39,9 +37,7 @@ export const ArticlesList = (props) => {
         setError(error);
         setLoading(false);
       });
-  }, [sort_by, page, limit, props]);
-
-  const { topic, username, path } = props;
+  }, [sort_by, page, limit, topic, username, path]);
 
   const randomArticles = [];
   let counter = 3;
@@ -53,7 +49,6 @@ export const ArticlesList = (props) => {
 
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;
-
   if (!loading && path === '/') {
     return (
       <main className="articles" data-testid="articles">
