@@ -4,7 +4,7 @@ import Error from './Error';
 import Loading from './Loading';
 import UserCard from './UserCard';
 
-export const UsersList = ({}) => {
+export const UsersList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [users, setUsers] = useState([]);

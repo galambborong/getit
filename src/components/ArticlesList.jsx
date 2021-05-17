@@ -47,8 +47,6 @@ export const ArticlesList = ({ topic, username, path }) => {
     counter--;
   }
 
-  console.log(loading);
-
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;
   if (!loading && path === '/') {

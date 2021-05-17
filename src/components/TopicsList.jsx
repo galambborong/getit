@@ -4,7 +4,7 @@ import Loading from './Loading';
 import Error from './Error';
 import TopicCard from './TopicCard';
 
-export const TopicsList = ({}) => {
+export const TopicsList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [topics, setTopics] = useState([]);
