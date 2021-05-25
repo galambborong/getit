@@ -15,9 +15,6 @@ export const ArticlesList = ({ topic, username, path }) => {
   const [limit, setLimit] = useState(10);
   const [totalArticle, setTotalArticle] = useState(0);
 
-  console.log(path);
-  console.log(articles);
-
   const sortListOrder = (event) => {
     setSortBy(event);
   };
@@ -47,7 +44,6 @@ export const ArticlesList = ({ topic, username, path }) => {
 
   while (counter > 0) {
     randomArticles.push(articles[Math.floor(Math.random() * articles.length)]);
-    console.log(randomArticles);
     counter--;
   }
 
@@ -55,7 +51,7 @@ export const ArticlesList = ({ topic, username, path }) => {
   if (error) return <Error error={error} />;
   if (!loading && path === '/') {
     return (
-      <main className="articles" data-testid="articles">
+      <main className="articles" data-testid="articles-landing">
         <h2 className="articles__header">Some reading to get you started...</h2>
         <section className="articles-container">
           {randomArticles.map((article) => {
@@ -67,7 +63,7 @@ export const ArticlesList = ({ topic, username, path }) => {
   }
 
   return (
-    <main className="articles" data-testid="articles">
+    <main className="articles" data-testid="articles-main">
       {topic && <h2 className="articles__header">{topic} articles</h2>}
       {username && (
         <h2 className="articles__header articles__header--user">
