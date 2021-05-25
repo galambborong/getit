@@ -44,6 +44,7 @@ export const ArticlesList = ({ topic, username, path }) => {
 
   while (counter > 0) {
     randomArticles.push(articles[Math.floor(Math.random() * articles.length)]);
+    console.log(randomArticles);
     counter--;
   }
 
