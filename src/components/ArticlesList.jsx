@@ -15,6 +15,8 @@ export const ArticlesList = ({ topic, username, path }) => {
   const [limit, setLimit] = useState(10);
   const [totalArticle, setTotalArticle] = useState(0);
 
+  console.log(path);
+
   const sortListOrder = (event) => {
     setSortBy(event);
   };
