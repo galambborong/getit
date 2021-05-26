@@ -4,18 +4,34 @@ const req = axios.create({
   baseURL: 'https://pk-nc-news.herokuapp.com/api'
 });
 
+// export const fetchArticles = async (topic, username, sortBy, page, limit) => {
+//   const { data } = await req.get('/articles', {
+//     params: {
+//       topic: topic ? topic : null,
+//       author: username ? username : null,
+//       sort_by: sortBy,
+//       order: 'desc',
+//       p: page,
+//       limit
+//     }
+//   });
+//   return data;
+// };
+
 export const fetchArticles = async (topic, username, sortBy, page, limit) => {
-  const { data } = await req.get('/articles', {
-    params: {
-      topic: topic ? topic : null,
-      author: username ? username : null,
-      sort_by: sortBy,
-      order: 'desc',
-      p: page,
-      limit
+  const { data } = await axios.get(
+    'https://pk-nc-news.herokuapp.com/api/articles',
+    {
+      params: {
+        topic: topic ? topic : null,
+        author: username ? username : null,
+        sort_by: sortBy,
+        order: 'desc',
+        p: page,
+        limit
+      }
     }
-  });
-  console.log(data);
+  );
   return data;
 };
 

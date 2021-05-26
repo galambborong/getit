@@ -2,14 +2,11 @@ export default {
   create: jest.fn().mockResolvedValue({
     url: ''
   }),
-  req: '',
+  req: jest.fn().mockResolvedValue({
+    data: {},
+    get: { data: {} }
+  }),
   get: jest.fn().mockResolvedValue({
-    data: {}
-  }),
-  'req.get': jest.fn().mockResolvedValue({
-    data: {}
-  }),
-  fetchArticles: jest.fn().mockResolvedValue({
     data: {}
   })
 };
