@@ -24,6 +24,7 @@ I'm making constant updates to this project at the moment, so the following is y
 - **Sort-by handling**. I'm currently providing a selection of options for sorting articles and comments, but ideally the user should be able to control things like the number of articles they want to view per page, the sort direction, etc
 - **Article deletion**
 - **A landing page** which makes it more explicit to the user that they are 'logged in', who the user is
+- **Local storage**. I'd quite like to implement some basic use of browser storage, so a revisiting user cannot repeatedly vote on the same article/comment
 
 ## Testing
 
