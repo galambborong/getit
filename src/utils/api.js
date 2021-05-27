@@ -4,34 +4,23 @@ const req = axios.create({
   baseURL: 'https://pk-nc-news.herokuapp.com/api'
 });
 
-// export const fetchArticles = async (topic, username, sortBy, page, limit) => {
-//   const { data } = await req.get('/articles', {
-//     params: {
-//       topic: topic ? topic : null,
-//       author: username ? username : null,
-//       sort_by: sortBy,
-//       order: 'desc',
-//       p: page,
-//       limit
-//     }
-//   });
-//   return data;
-// };
+// testing doesn't play nicely with axios.create.
+// until this is explored further leave both the
+// `req` above and the `baseURL` below as is
+
+const baseURL = 'https://pk-nc-news.herokuapp.com/api';
 
 export const fetchArticles = async (topic, username, sortBy, page, limit) => {
-  const { data } = await axios.get(
-    'https://pk-nc-news.herokuapp.com/api/articles',
-    {
-      params: {
-        topic: topic ? topic : null,
-        author: username ? username : null,
-        sort_by: sortBy,
-        order: 'desc',
-        p: page,
-        limit
-      }
+  const { data } = await axios.get(`${baseURL}/articles`, {
+    params: {
+      topic: topic ? topic : null,
+      author: username ? username : null,
+      sort_by: sortBy,
+      order: 'desc',
+      p: page,
+      limit
     }
-  );
+  });
   return data;
 };
 
