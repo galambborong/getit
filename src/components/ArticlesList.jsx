@@ -71,7 +71,9 @@ export const ArticlesList = ({ topic, username, path }) => {
         </h2>
       )}
       {!topic && !username && (
-        <h2 className="articles__header">All articles</h2>
+        <h2 className="articles__header" data-testid="articles-main-header">
+          All articles
+        </h2>
       )}
       <div className="controls">
         <SortList sortListOrder={sortListOrder} />

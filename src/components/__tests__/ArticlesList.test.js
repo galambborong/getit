@@ -57,9 +57,32 @@ test('ArticlesList component displays loading component while awaiting articles'
   expect(resolvedArticlesList).toBeTruthy();
 });
 
+test('ArticlesList component displays articles on /articles', async () => {
+  axiosMock.get.mockResolvedValueOnce({ data });
+
+  const { getByTestId } = render(<ArticlesList path={'/articles'} />);
+
+  expect(getByTestId('loading')).toHaveTextContent('get:it-ing');
+
+  const resolvedArticlesList = await waitFor(() =>
+    getByTestId('articles-main')
+  );
+
+  const resolvedHeader = await waitFor(() =>
+    getByTestId('articles-main-header')
+  );
+
+  expect(resolvedArticlesList).toBeTruthy();
+
+  expect(resolvedHeader).toHaveTextContent(/All articles/);
+});
+
 // test content (using data-testid AND header text content) for each possible endpoint:
 
+// DONE
 //   /
 //   /articles
+
+// TODO
 //   /:topic/articles
 //   /users/:user/articles
